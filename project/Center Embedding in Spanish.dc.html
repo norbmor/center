@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: oklch(0.968 0.009 83); color: oklch(0.23 0.016 58); font-family: Spectral, Georgia, serif; }
+  * { box-sizing: border-box; }
+  a { color: oklch(0.46 0.125 31); text-decoration: none; border-bottom: 1px solid oklch(0.46 0.125 31 / 0.32); }
+  a:hover { color: oklch(0.34 0.13 31); border-bottom-color: oklch(0.34 0.13 31 / 0.8); }
+  ::selection { background: oklch(0.46 0.125 31 / 0.18); }
+</style>
+</helmet>
+
+<article style="max-width: 1180px; margin: 0 auto; padding: clamp(20px, 4vw, 64px) clamp(18px, 4vw, 56px) 96px;">
+
+  <header style="border-bottom: 3px solid oklch(0.23 0.016 58); padding-bottom: 18px; margin-bottom: 8px;">
+    <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: baseline; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: oklch(0.46 0.125 31);">
+      <span>Research report · Hispanic psycholinguistics &amp; syntax</span>
+      <span style="color: oklch(0.48 0.012 58);">Compiled 13 September 2026</span>
+    </div>
+    <h1 style="font-family: Spectral, serif; font-weight: 800; font-size: clamp(38px, 7.2vw, 82px); line-height: 0.96; letter-spacing: -0.025em; margin: 18px 0 0; text-wrap: balance;">Center embedding in Spanish</h1>
+    <p style="font-family: Spectral, serif; font-weight: 400; font-style: italic; font-size: clamp(19px, 2.4vw, 27px); line-height: 1.32; margin: 16px 0 0; max-width: 34ch; color: oklch(0.35 0.02 58);">A structure that Spanish grammar permits freely, that Spanish corpora appear not to contain, and that Spanish readers nevertheless mis-parse in a very particular way.</p>
+  </header>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1px; background: oklch(0.23 0.016 58 / 0.18); border-bottom: 1px solid oklch(0.23 0.016 58 / 0.18); margin-bottom: clamp(32px, 5vw, 56px);">
+    <div style="background: oklch(0.968 0.009 83); padding: 20px 18px 22px;">
+      <div style="font-family: Spectral, serif; font-weight: 700; font-size: 40px; line-height: 1; color: oklch(0.46 0.125 31);">0</div>
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 1.5; margin-top: 8px; color: oklch(0.38 0.014 58);">double center-embedded relatives found in a targeted search of CORPES XXI (≈350M tokens)</div>
+    </div>
+    <div style="background: oklch(0.968 0.009 83); padding: 20px 18px 22px;">
+      <div style="font-family: Spectral, serif; font-weight: 700; font-size: 40px; line-height: 1; color: oklch(0.46 0.125 31);">+30%</div>
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 1.5; margin-top: 8px; color: oklch(0.38 0.014 58);">ungrammatical double embeddings accepted <em>more</em> often than grammatical ones (Spanish, speeded judgement)</div>
+    </div>
+    <div style="background: oklch(0.968 0.009 83); padding: 20px 18px 22px;">
+      <div style="font-family: Spectral, serif; font-weight: 700; font-size: 40px; line-height: 1; color: oklch(0.46 0.125 31);">3</div>
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 1.5; margin-top: 8px; color: oklch(0.38 0.014 58);">maximum attested degree of clausal center embedding in written language — across seven European languages, none of them Spanish</div>
+    </div>
+    <div style="background: oklch(0.968 0.009 83); padding: 20px 18px 22px;">
+      <div style="font-family: Spectral, serif; font-weight: 700; font-size: 40px; line-height: 1; color: oklch(0.46 0.125 31);">null</div>
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 1.5; margin-top: 8px; color: oklch(0.38 0.014 58);">effect of individual working-memory span on the Spanish missing-VP illusion (n = 80)</div>
+    </div>
+  </div>
+
+  <section style="margin-bottom: clamp(48px, 7vw, 88px);">
+    <h2 style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: oklch(0.46 0.125 31); margin: 0 0 24px; padding-bottom: 10px; border-bottom: 1px solid oklch(0.23 0.016 58 / 0.2);">What the evidence supports</h2>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(24px, 3vw, 40px);">
+
+      <div>
+        <div style="display: flex; gap: 12px; align-items: baseline;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; color: oklch(0.46 0.125 31);">01</span>
+          <h3 style="font-family: Spectral, serif; font-weight: 700; font-size: 22px; line-height: 1.22; margin: 0;">Spanish center embeds where every VO language does: after the subject, before the main verb</h3>
+        </div>
+        <p style="font-size: 17px; line-height: 1.62; margin: 12px 0 0; color: oklch(0.28 0.016 58);">Postnominal relative clauses plus SVO order put the embedded clause at the major intrasentential break. This is not a Spanish fact but a structural consequence, and the cross-linguistic corpus record for it is robust.</p>
+        <sc-if value="{{ showEvidenceGrades }}" hint-placeholder-val="{{ true }}">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 12px; color: oklch(0.42 0.09 145);">Evidence: strong · inferred for Spanish from typologically parallel languages</div>
+        </sc-if>
+      </div>
+
+      <div>
+        <div style="display: flex; gap: 12px; align-items: baseline;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; color: oklch(0.46 0.125 31);">02</span>
+          <h3 style="font-family: Spectral, serif; font-weight: 700; font-size: 22px; line-height: 1.22; margin: 0;">There is no Spanish corpus study of center-embedding incidence. None.</h3>
+        </div>
+        <p style="font-size: 17px; line-height: 1.62; margin: 12px 0 0; color: oklch(0.28 0.016 58);">The canonical quantitative work covers English, Finnish, French, German, Latin, Swedish and Danish. Spanish is absent. The only published Spanish search is a deliberately narrow, informal one — and it returned nothing.</p>
+        <sc-if value="{{ showEvidenceGrades }}" hint-placeholder-val="{{ true }}">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 12px; color: oklch(0.52 0.1 75);">Evidence: an absence, not a finding · load-bearing for everything below</div>
+        </sc-if>
+      </div>
+
+      <div>
+        <div style="display: flex; gap: 12px; align-items: baseline;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; color: oklch(0.46 0.125 31);">03</span>
+          <h3 style="font-family: Spectral, serif; font-weight: 700; font-size: 22px; line-height: 1.22; margin: 0;">The missing-VP illusion exists in Spanish, and looks larger than in English</h3>
+        </div>
+        <p style="font-size: 17px; line-height: 1.62; margin: 12px 0 0; color: oklch(0.28 0.016 58);">Pañeda &amp; Lago (2024) show Spanish speakers accepting verb-deficient double embeddings more often than well-formed ones, in two experiments, with single embeddings behaving canonically as a control.</p>
+        <sc-if value="{{ showEvidenceGrades }}" hint-placeholder-val="{{ true }}">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 12px; color: oklch(0.42 0.09 145);">Evidence: strong · direct, pre-registered data, n = 157 across two experiments</div>
+        </sc-if>
+      </div>
+
+      <div>
+        <div style="display: flex; gap: 12px; align-items: baseline;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; color: oklch(0.46 0.125 31);">04</span>
+          <h3 style="font-family: Spectral, serif; font-weight: 700; font-size: 22px; line-height: 1.22; margin: 0;">Verb-cluster statistics predict the illusion; memory span does not</h3>
+        </div>
+        <p style="font-size: 17px; line-height: 1.62; margin: 12px 0 0; color: oklch(0.28 0.016 58);">Spanish subject–verb inversion allows the number of adjacent verbs to be varied while holding embedding depth and grammaticality constant. Fewer adjacent verbs, smaller illusion. Operation-span scores had no detectable effect.</p>
+        <sc-if value="{{ showEvidenceGrades }}" hint-placeholder-val="{{ true }}">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 12px; color: oklch(0.52 0.1 75);">Evidence: moderate · the inversion effect has a competing DLT reading; the memory null is a null</div>
+        </sc-if>
+      </div>
+
+      <div>
+        <div style="display: flex; gap: 12px; align-items: baseline;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; color: oklch(0.46 0.125 31);">05</span>
+          <h3 style="font-family: Spectral, serif; font-weight: 700; font-size: 22px; line-height: 1.22; margin: 0;">Two Spanish results point in opposite directions, and nobody has reconciled them</h3>
+        </div>
+        <p style="font-size: 17px; line-height: 1.62; margin: 12px 0 0; color: oklch(0.28 0.016 58);">Hoover (1992) reported Spanish comprehension of double embeddings holding near 85% where English collapsed to ~40%. Pañeda &amp; Lago find an illusion at least as strong as English's. Both cannot be the whole story.</p>
+        <sc-if value="{{ showEvidenceGrades }}" hint-placeholder-val="{{ true }}">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 12px; color: oklch(0.55 0.14 25);">Evidence: conflicting · different tasks, eras and populations; unresolved in the literature</div>
+        </sc-if>
+      </div>
+
+    </div>
+  </section>
+
+  <div style="height: 3px; background: oklch(0.23 0.016 58); margin-bottom: clamp(40px, 6vw, 72px);"></div>
+
+  <section id="s1" style="display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; margin-bottom: clamp(56px, 8vw, 96px);">
+    <div style="display: flex; gap: 16px; align-items: baseline; margin-bottom: 20px;">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; color: oklch(0.46 0.125 31); letter-spacing: 0.1em;">§1</span>
+      <h2 style="font-family: Spectral, serif; font-weight: 800; font-size: clamp(28px, 4vw, 44px); line-height: 1.06; letter-spacing: -0.02em; margin: 0; text-wrap: balance;">The structure, and why Spanish builds it the way it does</h2>
+    </div>
+
+    <div style="max-width: 70ch;">
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;">A center-embedded clause is one with material from its superordinate clause on both sides of it. In Karlsson's terms, a clause is center-embedded when the superordinate clause has words to its left — excluding subordinators and coordinators — and to its right; <em>degree</em> counts how many such embeddings a sequence contains, and <em>depth</em> counts levels below the main clause. Spanish, like the seven languages in his corpus, is a VO language with postnominal relative clauses, and that combination has a predictable consequence: the natural landing site for an embedded clause is the right edge of the grammatical subject, immediately before the main verb.</p>
+
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 8px;">That site is not arbitrary. It is the major intrasentential break in an SVO language — the point at which the topic has been introduced and can be specified before new information arrives with the verb and its complements. Across five Standard Average European languages, roughly two-thirds of center-embedded clauses attach to the subject of the superordinate clause, and around 70% of all center-embedded clauses are relatives. Spanish should pattern with them; nobody has checked.</p>
+    </div>
+
+    <div style="margin: 32px 0; padding: 24px 26px; background: oklch(0.945 0.012 83); border-left: 3px solid oklch(0.46 0.125 31);">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: oklch(0.46 0.125 31); margin-bottom: 18px;">The three degrees, built up</div>
+
+      <div style="margin-bottom: 22px;">
+        <div style="display: flex; gap: 14px; align-items: baseline;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: oklch(0.5 0.012 58); flex: 0 0 auto;">(1)</span>
+          <div style="min-width: 0;">
+            <div style="font-size: 19px; line-height: 1.5;">El periodista <strong style="font-weight: 600;">que entrevistó al ministro</strong> publicó el reportaje.</div>
+            <sc-if value="{{ showGlosses }}" hint-placeholder-val="{{ true }}">
+              <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; line-height: 1.6; color: oklch(0.48 0.012 58); margin-top: 6px;">the journalist that interviewed dom-the minister published the report</div>
+            </sc-if>
+            <div style="font-size: 16px; font-style: italic; color: oklch(0.38 0.016 58); margin-top: 5px;">‘The journalist who interviewed the minister published the report.’ — C¹, subject relative</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 22px;">
+        <div style="display: flex; gap: 14px; align-items: baseline;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: oklch(0.5 0.012 58); flex: 0 0 auto;">(2)</span>
+          <div style="min-width: 0;">
+            <div style="font-size: 19px; line-height: 1.5;">El periodista <strong style="font-weight: 600;">al que el ministro insultó</strong> publicó el reportaje.</div>
+            <sc-if value="{{ showGlosses }}" hint-placeholder-val="{{ true }}">
+              <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; line-height: 1.6; color: oklch(0.48 0.012 58); margin-top: 6px;">the journalist dom-the that the minister insulted published the report</div>
+            </sc-if>
+            <div style="font-size: 16px; font-style: italic; color: oklch(0.38 0.016 58); margin-top: 5px;">‘The journalist whom the minister insulted published the report.’ — C¹, object relative, marked by differential object marking</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="display: flex; gap: 14px; align-items: baseline;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: oklch(0.5 0.012 58); flex: 0 0 auto;">(3)</span>
+          <div style="min-width: 0;">
+            <div style="font-size: 19px; line-height: 1.5;">El político <strong style="font-weight: 600;">al que el periodista <em style="font-style: normal; border-bottom: 2px solid oklch(0.46 0.125 31 / 0.5);">al que los reporteros interrumpieron</em> entrevistó</strong> dimitió ayer.</div>
+            <sc-if value="{{ showGlosses }}" hint-placeholder-val="{{ true }}">
+              <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; line-height: 1.6; color: oklch(0.48 0.012 58); margin-top: 6px;">the politician dom-the that the journalist dom-the that the reporters interrupted interviewed resigned yesterday</div>
+            </sc-if>
+            <div style="font-size: 16px; font-style: italic; color: oklch(0.38 0.016 58); margin-top: 5px;">‘The politician whom the journalist whom the reporters interrupted interviewed resigned yesterday.’ — C², the structure at issue throughout this report</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; line-height: 1.7; color: oklch(0.38 0.014 58); margin-top: 22px; padding-top: 18px; border-top: 1px solid oklch(0.23 0.016 58 / 0.15);">[<sub>M</sub> El político [<sub>C-1</sub> al que el periodista [<sub>C-2</sub> al que los reporteros interrumpieron] entrevistó] dimitió ayer.]<br /><span style="color: oklch(0.52 0.012 58);">Three consecutive verbs — interrumpieron · entrevistó · dimitió — is the configuration that all of §3 turns on.</span></div>
+    </div>
+
+    <div style="max-width: 70ch;">
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;">Four properties of Spanish make its center embeddings structurally distinct from the English cases the literature was built on.</p>
+
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;"><strong>A relativizer inventory with real internal variation.</strong> Beyond the default, semantically empty <em>que</em>, Spanish has <em>el cual</em> (carrying gender and number), <em>quien</em> (animate), <em>donde</em> (locative) — relativizers that differ both in lexical frequency and in featural content. Fernández, Hoeks and colleagues' corpus-plus-eye-tracking work on restrictive and non-restrictive relatives shows lexico-semantic information from the relativizer influencing processing early, both when the relativizer is activated and when it is integrated into the structure. A center-embedding experiment that uses only <em>que</em> is holding a Spanish-specific variable at one value.</p>
+
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;"><strong>Differential object marking as a parsing cue.</strong> Animate, specific objects take the preposition <em>a</em>, which can precede the relative pronoun — <em>al que</em> in (2) and (3). This does work that English <em>whom</em> does only optionally: it announces at the left edge of the clause that the relativized element is not the subject. Two consequences follow. Thematic-role assignment is easier despite the non-canonical object-before-subject order, and the parser can commit to an object-relative analysis immediately rather than garden-pathing into a subject-relative reading and reanalysing. Pañeda and Lago exploit this deliberately: every embedded clause in their materials is <em>a</em>-marked, so that no antecedent can be grammatically read as the subject of the clause-internal verb — not even in the inverted conditions, where the verb precedes its subject.</p>
+
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;"><strong>Subject–verb inversion inside relative clauses.</strong> Both SV and VS orders are grammatical in Spanish relatives, with VS generally unmarked and SV typically reserved for subject topicalisation. Position is further conditioned by semantics — non-agentive and indefinite subjects tend to postpose. This is the single most useful methodological affordance Spanish offers this literature, and §3 explains why.</p>
+
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 8px;"><strong>Free word order, hence lower cue validity for order itself.</strong> English word order is rigid and therefore informative; Spanish speakers lean more on inflectional agreement. Every existing claim linking verb-initiality to the missing-VP illusion came from a language where order is a reliable cue. Spanish is the test case where it isn't.</p>
+    </div>
+  </section>
+
+  <section id="s2" style="margin-bottom: clamp(56px, 8vw, 96px);">
+    <div style="display: flex; gap: 16px; align-items: baseline; margin-bottom: 20px;">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; color: oklch(0.46 0.125 31); letter-spacing: 0.1em;">§2</span>
+      <h2 style="font-family: Spectral, serif; font-weight: 800; font-size: clamp(28px, 4vw, 44px); line-height: 1.06; letter-spacing: -0.02em; margin: 0; text-wrap: balance;">The corpus record, and the hole in it</h2>
+    </div>
+
+    <div style="max-width: 70ch;">
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;">Karlsson's 2007 <em>Journal of Linguistics</em> paper remains the reference point for what center embedding actually looks like in use, and it is worth being precise about what it covers. He analysed 119 genuine multiple center embeddings, resolved into 132 C² units, drawn from English, Finnish, French, German, Latin, Swedish and Danish — systematically from the Brown and LOB corpora, supplemented by prior collections, a manual pass over 6,000 sentences of Bentham, Mill and Peirce, more than a hundred descriptive and stylistic grammars, and years of naturalistic observation.</p>
+
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;">His findings are usage-based &ldquo;soft constraints&rdquo;, not grammatical rules, and they are strikingly restrictive. Maximum degree is three in writing and two in speech, with C³ &mdash; thirteen instances, all written &mdash; effectively confined to Latin, German, English, Swedish and Danish, most of them convoluted enough to sit beyond Gibson's acceptability threshold. Multiple center embedding is <em>practically absent</em> from genuine speech: three of the 132 C²s are spoken, and no C⁴ has ever been adduced. Only clauses that postmodify nouns permit central self-embedding. And doubly relativized objects &mdash; <em>the rat the cat the dog chased killed ate the malt</em> &mdash; do not occur at all, in any of the seven languages, in the whole corpus.</p>
+    </div>
+
+    <div style="margin: 34px 0; padding: 26px; background: oklch(0.945 0.012 83);">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: oklch(0.46 0.125 31); margin-bottom: 6px;">Figure 1 · What a double center embedding is made of</div>
+      <div style="font-family: Spectral, serif; font-size: 15px; font-style: italic; color: oklch(0.4 0.016 58); margin-bottom: 22px; max-width: 62ch;">Clause-type combinations in Karlsson's 132 C²s, seven languages. Relative-inside-relative is the single largest class; ~90% of C²s contain at least one relative clause. The last row is an empirical zero.</div>
+
+      <div style="display: grid; gap: 9px;">
+        <div style="display: grid; grid-template-columns: minmax(140px, 220px) minmax(0, 1fr) 58px; gap: 12px; align-items: center;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;">relative + relative</span>
+          <sc-if value="{{ showCharts }}" hint-placeholder-val="{{ true }}"><span style="display: block; height: 15px; background: oklch(0.46 0.125 31); width: 100%;"></span></sc-if>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; text-align: right; font-weight: 600;">35.6%</span>
+        </div>
+        <div style="display: grid; grid-template-columns: minmax(140px, 220px) minmax(0, 1fr) 58px; gap: 12px; align-items: center;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;">that-compl. + relative</span>
+          <sc-if value="{{ showCharts }}" hint-placeholder-val="{{ true }}"><span style="display: block; height: 15px; background: oklch(0.46 0.125 31 / 0.78); width: 32%;"></span></sc-if>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; text-align: right; font-weight: 600;">11.4%</span>
+        </div>
+        <div style="display: grid; grid-template-columns: minmax(140px, 220px) minmax(0, 1fr) 58px; gap: 12px; align-items: center;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;">relative + before/when</span>
+          <sc-if value="{{ showCharts }}" hint-placeholder-val="{{ true }}"><span style="display: block; height: 15px; background: oklch(0.46 0.125 31 / 0.78); width: 30%;"></span></sc-if>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; text-align: right; font-weight: 600;">10.6%</span>
+        </div>
+        <div style="display: grid; grid-template-columns: minmax(140px, 220px) minmax(0, 1fr) 58px; gap: 12px; align-items: center;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;">relative + as</span>
+          <sc-if value="{{ showCharts }}" hint-placeholder-val="{{ true }}"><span style="display: block; height: 15px; background: oklch(0.46 0.125 31 / 0.78); width: 23%;"></span></sc-if>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; text-align: right; font-weight: 600;">8.3%</span>
+        </div>
+        <div style="display: grid; grid-template-columns: minmax(140px, 220px) minmax(0, 1fr) 58px; gap: 12px; align-items: center;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;">when/after/before + rel.</span>
+          <sc-if value="{{ showCharts }}" hint-placeholder-val="{{ true }}"><span style="display: block; height: 15px; background: oklch(0.46 0.125 31 / 0.78); width: 19%;"></span></sc-if>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; text-align: right; font-weight: 600;">6.8%</span>
+        </div>
+        <div style="display: grid; grid-template-columns: minmax(140px, 220px) minmax(0, 1fr) 58px; gap: 12px; align-items: center;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;">that-compl. + that-compl.</span>
+          <sc-if value="{{ showCharts }}" hint-placeholder-val="{{ true }}"><span style="display: block; height: 15px; background: oklch(0.46 0.125 31 / 0.78); width: 11%;"></span></sc-if>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; text-align: right; font-weight: 600;">3.8%</span>
+        </div>
+        <div style="display: grid; grid-template-columns: minmax(140px, 220px) minmax(0, 1fr) 58px; gap: 12px; align-items: center; padding-top: 6px; border-top: 1px dashed oklch(0.23 0.016 58 / 0.25);">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: oklch(0.55 0.14 25);">object rel. + object rel.</span>
+          <sc-if value="{{ showCharts }}" hint-placeholder-val="{{ true }}"><span style="display: block; height: 15px; border: 1px dashed oklch(0.55 0.14 25 / 0.6); width: 100%;"></span></sc-if>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; text-align: right; font-weight: 600; color: oklch(0.55 0.14 25);">0</span>
+        </div>
+      </div>
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: oklch(0.5 0.012 58); margin-top: 16px;">Source: Karlsson 2007, Tables 4 and 7 (n = 132 C²; n = 47 relative self-embeddings). No Spanish data.</div>
+    </div>
+
+    <div style="max-width: 70ch;">
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;">For base rates, his English figures are the only ones on record: in a balanced 495-sentence Brown subsample, center embeddings are about 11% of all embedded clauses and 15% of finite ones, against 76% for final embeddings; roughly every tenth running sentence contains a simplex C¹, about 70% of which are relatives. C² runs at an estimated 0.02% of sentences — one per 5,000 sentences, or twelve per million words, a figure independently matched in the Nijmegen corpus. Extrapolating the same ratio downward predicts a single C³ per 2.3 million sentences.</p>
+
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;">Now the Spanish gap. <strong>No equivalent survey exists.</strong> The one published search is Pañeda and Lago's, and they are explicit that it was not a formal corpus study: it was scoped to structures matching their experimental items, restricted to texts produced in Spain between 2010 and 2022 within CORPES XXI (≈350 million tokens, written and oral). They looked for sentences with two center-embedded <em>que</em>-relatives in which each relative pronoun's antecedent was the subject of the nearest outer verb and the inner clause contained only a subject and a verb. They found no instances at all — with inversion or without.</p>
+
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 8px;">That zero is worth reading carefully. It is entirely consistent with Karlsson's English base rate: at twelve C²s per million words, a 350-million-token corpus narrowed by country, date, register, relativizer, antecedent function and inner-clause length can easily contain none. The honest reading is that the search establishes the extreme infrequency of one narrowly specified Spanish configuration. It does not measure Spanish center embedding, and it cannot be cited as though it did.</p>
+    </div>
+
+    <div style="margin: 34px 0 0; padding: 26px; background: oklch(0.945 0.012 83);">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: oklch(0.46 0.125 31); margin-bottom: 6px;">Figure 2 · What the CORPES XXI search did and did not find</div>
+      <div style="font-family: Spectral, serif; font-size: 15px; font-style: italic; color: oklch(0.4 0.016 58); margin-bottom: 22px; max-width: 62ch;">Token counts, Spain 2010–2022 subcorpus. The informative contrast is not the zero at the top but the 14:1 preference for inversion in the single-embedding structures that <em>are</em> attested.</div>
+
+      <div style="display: grid; gap: 14px;">
+        <div style="display: grid; grid-template-columns: minmax(170px, 300px) minmax(0, 1fr) 60px; gap: 14px; align-items: center;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; line-height: 1.4;">C², either order<br /><span style="color: oklch(0.55 0.012 58);">[que S [que S V] V] V</span></span>
+          <sc-if value="{{ showCharts }}" hint-placeholder-val="{{ true }}"><span style="display: block; height: 17px; border-left: 2px solid oklch(0.55 0.14 25); width: 100%;"></span></sc-if>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; text-align: right; font-weight: 600; color: oklch(0.55 0.14 25);">0</span>
+        </div>
+        <div style="display: grid; grid-template-columns: minmax(170px, 300px) minmax(0, 1fr) 60px; gap: 14px; align-items: center;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; line-height: 1.4;">C¹, inverted (VS)<br /><span style="color: oklch(0.55 0.012 58);">[que V S] V — 0 adjacent verbs</span></span>
+          <sc-if value="{{ showCharts }}" hint-placeholder-val="{{ true }}"><span style="display: block; height: 17px; background: oklch(0.46 0.125 31); width: 100%;"></span></sc-if>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; text-align: right; font-weight: 600;">436</span>
+        </div>
+        <div style="display: grid; grid-template-columns: minmax(170px, 300px) minmax(0, 1fr) 60px; gap: 14px; align-items: center;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; line-height: 1.4;">C¹, non-inverted (SV)<br /><span style="color: oklch(0.55 0.012 58);">[que S V] V — 2 adjacent verbs</span></span>
+          <sc-if value="{{ showCharts }}" hint-placeholder-val="{{ true }}"><span style="display: block; height: 17px; background: oklch(0.46 0.125 31 / 0.5); width: 7.3%;"></span></sc-if>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; text-align: right; font-weight: 600;">32</span>
+        </div>
+      </div>
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: oklch(0.5 0.012 58); margin-top: 18px; line-height: 1.6;">Source: Pañeda &amp; Lago 2024, Appendix A. Described by the authors as a preliminary, non-formal search, scoped to their materials.</div>
+    </div>
+  </section>
+
+  <section id="s3" style="margin-bottom: clamp(56px, 8vw, 96px);">
+    <div style="display: flex; gap: 16px; align-items: baseline; margin-bottom: 20px;">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; color: oklch(0.46 0.125 31); letter-spacing: 0.1em;">§3</span>
+      <h2 style="font-family: Spectral, serif; font-weight: 800; font-size: clamp(28px, 4vw, 44px); line-height: 1.06; letter-spacing: -0.02em; margin: 0; text-wrap: balance;">The missing-VP illusion arrives in Spanish</h2>
+    </div>
+
+    <div style="max-width: 70ch;">
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;">The most consequential recent result on Spanish center embedding is Claudia Pañeda and Sol Lago's <em>Open Mind</em> paper of February 2024. It is the first study to test the missing-VP illusion in Spanish <em>comprehension</em>, and it does so with a design that turns a Spanish grammatical property into an experimental instrument.</p>
+
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;">The phenomenon: a grammatical double embedding requires three verb phrases. Delete the second, and the sentence becomes ungrammatical — yet English speakers rate the broken version as equally or more acceptable than the intact one. Gibson and Thomas's (1999) account is that each of the three initial determiner phrases opens a VP prediction, all of which must be held simultaneously; the parser resolves the overload by dropping the VP2 prediction, whose absence then goes unnoticed. Speakers of languages with verb-final embedded clauses — German, Dutch — are markedly less prone to this, which has been attributed to the higher frequency of three-verb clusters in those languages rather than to any difference in memory.</p>
+    </div>
+
+    <div style="margin: 32px 0; padding: 24px 26px; background: oklch(0.945 0.012 83); border-left: 3px solid oklch(0.46 0.125 31);">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: oklch(0.46 0.125 31); margin-bottom: 18px;">The four conditions, on one item</div>
+
+      <div style="display: grid; gap: 20px;">
+        <div style="display: flex; gap: 14px; align-items: baseline;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: oklch(0.5 0.012 58); flex: 0 0 auto;">(4a)</span>
+          <div style="min-width: 0;">
+            <div style="font-size: 18.5px; line-height: 1.5;">El político al que el periodista al que <strong style="font-weight: 600;">los reporteros interrumpieron entrevistó</strong> dimitió ayer.</div>
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: oklch(0.42 0.09 145); margin-top: 6px; letter-spacing: 0.05em;">GRAMMATICAL · NON-INVERTED · 3 adjacent verbs</div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 14px; align-items: baseline;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: oklch(0.5 0.012 58); flex: 0 0 auto;">(4b)</span>
+          <div style="min-width: 0;">
+            <div style="font-size: 18.5px; line-height: 1.5;">*El político al que el periodista al que <strong style="font-weight: 600;">los reporteros interrumpieron</strong> dimitió ayer.</div>
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: oklch(0.55 0.14 25); margin-top: 6px; letter-spacing: 0.05em;">UNGRAMMATICAL, VP2 DELETED · 2 adjacent verbs · <em style="font-style: normal;">accepted more often than (4a)</em></div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 14px; align-items: baseline;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: oklch(0.5 0.012 58); flex: 0 0 auto;">(4c)</span>
+          <div style="min-width: 0;">
+            <div style="font-size: 18.5px; line-height: 1.5;">El político al que el periodista al que <strong style="font-weight: 600;">interrumpieron los reporteros entrevistó</strong> dimitió ayer.</div>
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: oklch(0.42 0.09 145); margin-top: 6px; letter-spacing: 0.05em;">GRAMMATICAL · INVERTED · 2 adjacent verbs</div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 14px; align-items: baseline;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: oklch(0.5 0.012 58); flex: 0 0 auto;">(4d)</span>
+          <div style="min-width: 0;">
+            <div style="font-size: 18.5px; line-height: 1.5;">*El político al que el periodista al que <strong style="font-weight: 600;">interrumpieron los reporteros</strong> dimitió ayer.</div>
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: oklch(0.55 0.14 25); margin-top: 6px; letter-spacing: 0.05em;">UNGRAMMATICAL, VP2 DELETED · 0 adjacent verbs · <em style="font-style: normal;">rejected 12 points more often than (4b)</em></div>
+          </div>
+        </div>
+      </div>
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: oklch(0.5 0.012 58); margin-top: 20px; padding-top: 16px; border-top: 1px solid oklch(0.23 0.016 58 / 0.15); line-height: 1.6;">Constructed after the template of Pañeda &amp; Lago 2024, Table 1. Plural agreement on the inner subject, plus <em>a</em>-marking on the relative pronoun, jointly block a subject-relative reading even under inversion.</div>
+    </div>
+
+    <div style="max-width: 70ch;">
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;"><strong>Experiment 1</strong> (77 European Spanish speakers retained of 81, recruited via Prolific, speeded judgement at 400 ms per word with a 2,000 ms response deadline) crossed grammaticality with inversion over 24 double-embedding item sets, with twelve single-embedding sets as a length control. Bayesian mixed-effects logistic models found the diagnostic interaction: single embeddings produced a canonical grammaticality effect of −63% [−72, −52], while double embeddings reversed it to +30% [20, 40]. Ungrammatical sentences were accepted more often than grammatical ones.</p>
+
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;"><strong>Experiment 2</strong> (80 speakers, in person at Oviedo, single embeddings folded into the item sets, non-inverted conditions only) replicated it: −68% [−79, −57] for single embeddings, +26% [16, 37] for double.</p>
+
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;">The single-embedding control is what makes this hard to dismiss. If participants were simply preferring shorter strings — the missing-VP conditions are by construction one verb shorter — the same heuristic should have inflated acceptance of defective single embeddings. It did the opposite.</p>
+    </div>
+
+    <div style="margin: 34px 0; padding: 26px; background: oklch(0.945 0.012 83);">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: oklch(0.46 0.125 31); margin-bottom: 6px;">Figure 3 · The grammaticality effect inverts with embedding depth</div>
+      <div style="font-family: Spectral, serif; font-size: 15px; font-style: italic; color: oklch(0.4 0.016 58); margin-bottom: 26px; max-width: 62ch;">Model-estimated effect of grammaticality on acceptance, back-transformed to percentage points. Negative = ungrammatical sentences accepted less (the normal case). Positive = the illusion.</div>
+
+      <div style="display: grid; gap: 18px;">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; margin-bottom: 6px;">
+            <span>Exp. 1 · single embedding</span><span style="font-weight: 600;">−63% <span style="color: oklch(0.55 0.012 58); font-weight: 400;">[−72, −52]</span></span>
+          </div>
+          <sc-if value="{{ showCharts }}" hint-placeholder-val="{{ true }}">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; height: 15px;"><div style="display: flex; justify-content: flex-end;"><span style="display: block; height: 15px; background: oklch(0.42 0.09 145); width: 79%;"></span></div><div style="border-left: 1px solid oklch(0.23 0.016 58 / 0.4);"></div></div>
+          </sc-if>
+        </div>
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; margin-bottom: 6px;">
+            <span>Exp. 1 · double embedding</span><span style="font-weight: 600; color: oklch(0.55 0.14 25);">+30% <span style="color: oklch(0.55 0.012 58); font-weight: 400;">[20, 40]</span></span>
+          </div>
+          <sc-if value="{{ showCharts }}" hint-placeholder-val="{{ true }}">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; height: 15px;"><div></div><div style="border-left: 1px solid oklch(0.23 0.016 58 / 0.4);"><span style="display: block; height: 15px; background: oklch(0.55 0.14 25); width: 38%;"></span></div></div>
+          </sc-if>
+        </div>
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; margin-bottom: 6px;">
+            <span>Exp. 2 · single embedding</span><span style="font-weight: 600;">−68% <span style="color: oklch(0.55 0.012 58); font-weight: 400;">[−79, −57]</span></span>
+          </div>
+          <sc-if value="{{ showCharts }}" hint-placeholder-val="{{ true }}">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; height: 15px;"><div style="display: flex; justify-content: flex-end;"><span style="display: block; height: 15px; background: oklch(0.42 0.09 145); width: 85%;"></span></div><div style="border-left: 1px solid oklch(0.23 0.016 58 / 0.4);"></div></div>
+          </sc-if>
+        </div>
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; margin-bottom: 6px;">
+            <span>Exp. 2 · double embedding</span><span style="font-weight: 600; color: oklch(0.55 0.14 25);">+26% <span style="color: oklch(0.55 0.012 58); font-weight: 400;">[16, 37]</span></span>
+          </div>
+          <sc-if value="{{ showCharts }}" hint-placeholder-val="{{ true }}">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; height: 15px;"><div></div><div style="border-left: 1px solid oklch(0.23 0.016 58 / 0.4);"><span style="display: block; height: 15px; background: oklch(0.55 0.14 25); width: 33%;"></span></div></div>
+          </sc-if>
+        </div>
+      </div>
+
+      <div style="margin-top: 26px; padding-top: 20px; border-top: 1px solid oklch(0.23 0.016 58 / 0.15);">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: oklch(0.46 0.125 31); margin-bottom: 12px;">Illusion size by inversion (Exp. 1, double embeddings only)</div>
+        <div style="display: grid; gap: 12px;">
+          <div style="display: grid; grid-template-columns: minmax(120px, 190px) minmax(0, 1fr) 76px; gap: 12px; align-items: center;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;">non-inverted (SV)</span>
+            <sc-if value="{{ showCharts }}" hint-placeholder-val="{{ true }}"><span style="display: block; height: 15px; background: oklch(0.55 0.14 25); width: 100%;"></span></sc-if>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; text-align: right; font-weight: 600;">65%</span>
+          </div>
+          <div style="display: grid; grid-template-columns: minmax(120px, 190px) minmax(0, 1fr) 76px; gap: 12px; align-items: center;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;">inverted (VS)</span>
+            <sc-if value="{{ showCharts }}" hint-placeholder-val="{{ true }}"><span style="display: block; height: 15px; background: oklch(0.55 0.14 25 / 0.55); width: 69%;"></span></sc-if>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; text-align: right; font-weight: 600;">45%</span>
+          </div>
+        </div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: oklch(0.5 0.012 58); margin-top: 14px; line-height: 1.6;">Grammaticality × inversion interaction: −21% [−34, −7]. Driven by the ungrammatical conditions (−12% [−21, −3]); the effect on grammatical sentences straddled zero (+9% [−2, 20]).</div>
+      </div>
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: oklch(0.5 0.012 58); margin-top: 18px;">Source: Pañeda &amp; Lago 2024, Tables 2 and 4; 95% credible intervals in brackets. Data and code at <a href="https://osf.io/kp8ns/">osf.io/kp8ns</a>.</div>
+    </div>
+
+    <div style="max-width: 70ch;">
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;"><strong>The inversion manipulation is the methodological payoff.</strong> Cross-linguistic tests of the language-statistics account have to compare speakers of different languages, which confounds verb-cluster frequency with everything else that differs between English and German. Spanish inversion varies the number of adjacent verbs <em>within</em> the language, holding embedding depth, item, and grammatical status fixed: three verbs become two in the grammatical conditions, two become zero in the ungrammatical ones. The illusion shrank by 21 points under inversion — the direction the statistics account predicts.</p>
+
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;">Two caveats belong with that result, and the authors raise both. First, the effect was reliable only in the ungrammatical conditions, where inversion moves the string from a rare two-verb sequence to a common zero-verb one; in grammatical sentences it moves from vanishingly rare (three verbs) to merely very rare (two), which may simply not be enough. Second, there is an alternative reading under Dependency Locality Theory: inversion could shorten the dependency between <em>al que</em> and its gap, reducing integration cost rather than raising expectedness. Whether that alternative holds depends on where the gap is — after the verb if VS comes from rightward subject movement, after the subject if the verb has raised instead — and on that second analysis the DLT prediction disappears. The authors favour the statistics reading while conceding the argument is not closed.</p>
+
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 8px;"><strong>The memory result is a genuine null, and it is interesting.</strong> Experiment 2 measured working memory with an operation-span task (recall scores ranged 27–93%, mean 65%, SD 13). Almost every account of the illusion assigns working memory a central role, yet the three-way interaction of span × grammaticality × depth straddled zero: 12% [−31, 51]. Nor did span predict the grammaticality effect within single or double embeddings separately. The authors do not conclude memory is irrelevant. They note that illusion size did vary substantially across participants, so the null is not a floor effect, and argue the most likely explanation is that operation span taps the wrong construct — under cue-based retrieval models, maintenance capacity is not what matters, and an interference-resistance measure might do better. A reading-span task would have been the conventional choice; they avoided it precisely because it risks measuring reading comprehension itself.</p>
+    </div>
+  </section>
+
+  <section id="s4" style="margin-bottom: clamp(56px, 8vw, 96px);">
+    <div style="display: flex; gap: 16px; align-items: baseline; margin-bottom: 20px;">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; color: oklch(0.46 0.125 31); letter-spacing: 0.1em;">§4</span>
+      <h2 style="font-family: Spectral, serif; font-weight: 800; font-size: clamp(28px, 4vw, 44px); line-height: 1.06; letter-spacing: -0.02em; margin: 0; text-wrap: balance;">A conflict in the record</h2>
+    </div>
+
+    <div style="max-width: 70ch;">
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;">Before 2024, the best available evidence pointed the other way. Hoover's 1992 self-paced reading study compared center-embedded and right-branching clauses in Spanish and English. On comprehension accuracy for single embeddings the two languages were alike, both around 85%. On double embeddings they diverged sharply: English accuracy fell to roughly 40%, while Spanish held at about 85%.</p>
+    </div>
+
+    <blockquote style="margin: 32px 0; padding: 0 0 0 clamp(16px, 3vw, 32px); border-left: 3px solid oklch(0.46 0.125 31);">
+      <p style="font-family: Spectral, serif; font-weight: 600; font-size: clamp(21px, 2.8vw, 29px); line-height: 1.34; margin: 0; letter-spacing: -0.01em;">Spanish readers understood double center embeddings at 85% where English readers managed 40% — and yet Spanish readers accept verb-deficient double embeddings more readily than English readers do.</p>
+      <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: oklch(0.46 0.125 31); margin: 16px 0 0; letter-spacing: 0.06em;">HOOVER 1992 vs. PAÑEDA &amp; LAGO 2024 — both stand; neither has been reconciled with the other</p>
+    </blockquote>
+
+    <div style="max-width: 70ch;">
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;">Pañeda and Lago cite Hoover as grounds for expecting Spanish to be <em>resistant</em> to the illusion, and predicted accordingly that eased processing might suppress it. They then found an illusion whose size is, descriptively, larger than in the English literature: in their data ungrammatical sentences were accepted in the majority of cases and grammatical ones rejected most of the time, whereas English studies typically found both conditions rated low with differences sometimes not reaching significance.</p>
+
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;">Their own explanation for the magnitude difference is methodological rather than linguistic, and it is plausible: the English studies used untimed Likert ratings, theirs used word-by-word speeded presentation with a binary forced choice, which both loads memory harder and polarises responses. If that is right, the Spanish and English illusions may be the same size and the cross-study contrast an artefact — which would leave Hoover's accuracy advantage standing and unexplained, since accuracy and illusion-susceptibility are not the same measure and could in principle dissociate.</p>
+
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 8px;">This is where the evidence is genuinely thin, and it should be reported as thin. Hoover 1992 is a single study, thirty-odd years old, measuring comprehension accuracy; Pañeda &amp; Lago 2024 is two studies measuring speeded acceptability. No one has run Spanish double embeddings in a reading-for-comprehension paradigm with modern methods, which is exactly the comparison that would adjudicate. The authors say as much: untimed Likert and reading-for-comprehension studies are needed to characterise the Spanish illusion's profile.</p>
+    </div>
+  </section>
+
+  <section id="s5" style="margin-bottom: clamp(56px, 8vw, 96px);">
+    <div style="display: flex; gap: 16px; align-items: baseline; margin-bottom: 20px;">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; color: oklch(0.46 0.125 31); letter-spacing: 0.1em;">§5</span>
+      <h2 style="font-family: Spectral, serif; font-weight: 800; font-size: clamp(28px, 4vw, 44px); line-height: 1.06; letter-spacing: -0.02em; margin: 0; text-wrap: balance;">The single-embedding baseline is well mapped</h2>
+    </div>
+
+    <div style="max-width: 70ch;">
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;">Everything above concerns degree 2 and beyond. At degree 1 — one relative clause inside its host — Spanish is one of the better-studied languages, and the results constrain what a theory of Spanish center embedding can say.</p>
+
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;"><strong>The subject-relative advantage holds.</strong> Betancort, Carreiras and Sturt's eye-tracking study (2009) found object relatives harder than subject relatives in Spanish, with animacy modulating the size of the asymmetry — the overall shape familiar from other languages, but with Spanish-specific implications, since Spanish relative clauses differ structurally from the English cases the asymmetry was first described in.</p>
+
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;"><strong>Its source is contested, and the candidates matter here.</strong> del Río, López-Higes and Martín-Aragoneses (2012) used self-paced reading with the interposition of the relative-clause subject between object and verb manipulated, and with object relatives unambiguously <em>a</em>-marked at onset. Reading times rose at the onset and final regions of object relatives <em>regardless</em> of interference-based memory cost, although interference did appear to affect post-clause regions. Their conclusion — that end-of-clause integration is shaped by a preference for canonical structures over and above interference — is the same kind of expectation-based explanation that the inversion effect in §3 invokes, arrived at independently a decade earlier and at a lower degree of embedding.</p>
+
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;"><strong>Frequency effects are demonstrable within Spanish relatives.</strong> A large-scale corpus analysis found pronominal object relatives significantly more frequent than pronominal subject relatives when the embedded pronoun is personal, with the pattern reversing for impersonal pronouns; four self-paced reading tasks then showed processing differences mirroring that distribution. Spanish speakers' relative-clause expectations track corpus frequencies at a fine grain — which is the premise the language-statistics account of the illusion needs.</p>
+
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 8px;"><strong>Acquisition is late and effortful.</strong> Eighty Spanish monolingual children aged 4;3 to 7;9 tested on subject and object relative comprehension show the object-relative difficulty attributed to constrained processing resources at early ages. This connects to a general finding worth keeping in view: center embedding is the last embedding position acquired, often after age seven, and center-embedded relatives attached to the main-clause subject — precisely the adult written prototype — are essentially absent from spontaneous child speech.</p>
+    </div>
+  </section>
+
+  <section id="s6" style="margin-bottom: clamp(56px, 8vw, 96px);">
+    <div style="display: flex; gap: 16px; align-items: baseline; margin-bottom: 20px;">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; color: oklch(0.46 0.125 31); letter-spacing: 0.1em;">§6</span>
+      <h2 style="font-family: Spectral, serif; font-weight: 800; font-size: clamp(28px, 4vw, 44px); line-height: 1.06; letter-spacing: -0.02em; margin: 0; text-wrap: balance;">Production, and models that predict Spanish</h2>
+    </div>
+
+    <div style="max-width: 70ch;">
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;">Hahn, Futrell, Levy and Gibson's 2022 PNAS paper supplies the other direct Spanish datapoint, from production rather than comprehension, and embeds it in an explicit model.</p>
+
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;">Their proposal, <em>resource-rational lossy-context surprisal</em>, is that memory representations of preceding context are optimised to minimise downstream processing effort under a resource bound, and that difficulty on a word is its surprisal given that lossy representation. Words are retained more often when recent and when low-frequency. Crucially, comprehenders reconstruct what they have lost using knowledge of language statistics — so a true context like <em>the report that the doctor annoyed the patient</em> competes with the surface-similar variant <em>the report by the doctor annoyed the patient</em>, which requires one fewer verb. The a priori probability of the nonveridical variant therefore predicts difficulty at the final verb. They operationalise this with <em>embedding bias</em>: the log-probability that a noun is followed by <em>that</em>, which in English ranges from about 70% for <em>fact</em> to 0.7% for <em>report</em>.</p>
+
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;">The Spanish test is Experiment 3, a sentence-completion study with 60 participants. Because subject-initial object relatives are unnatural in Spanish, they targeted subject relatives instead — fragments of the form <em>el hecho de que el director que…</em> — which incidentally tests generalisation to a different syntactic configuration. Spanish embedding-bias estimates came from the AnCora treebank for candidate nouns and from the 500-million-word Spanish Wikipedia for the probabilities.</p>
+    </div>
+
+    <div style="margin: 32px 0; padding: 24px 26px; background: oklch(0.945 0.012 83); border-left: 3px solid oklch(0.46 0.125 31);">
+      <div style="display: flex; gap: 14px; align-items: baseline;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: oklch(0.5 0.012 58); flex: 0 0 auto;">(5)</span>
+        <div style="min-width: 0;">
+          <div style="font-size: 19px; line-height: 1.5;">El hecho de que el director que despidió al empleado <strong style="font-weight: 600;">ocultara</strong> el informe <strong style="font-weight: 600;">sorprendió</strong> a todos.</div>
+          <sc-if value="{{ showGlosses }}" hint-placeholder-val="{{ true }}">
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; line-height: 1.6; color: oklch(0.48 0.012 58); margin-top: 6px;">the fact of that the director that fired dom-the employee hid.sbjv the report surprised dom everyone</div>
+          </sc-if>
+          <div style="font-size: 16px; font-style: italic; color: oklch(0.38 0.016 58); margin-top: 5px;">‘The fact that the director who fired the employee hid the report surprised everyone.’</div>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: oklch(0.46 0.125 31); margin-top: 10px; line-height: 1.6;">A completion of the Spanish fragment type <em>el hecho de que el director que…</em> with all three required verbs. Speakers frequently produce only two.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width: 70ch;">
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;">The result: embedding bias predicted the rate of incomplete (verb-deficient) completions in Spanish, β = −0.23, 95% CrI [−0.34, −0.12], P(β&nbsp;&gt;&nbsp;0) &lt; 0.0003 — an effect size comparable to English (β = −0.32) and German (β = −0.28), in a trial-by-trial logistic mixed-effects analysis. Languages differed in their overall rate of ungrammatical responses, but the embedding-bias effect held in all three. Neither plain surprisal theory nor DLT predicts it.</p>
+
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;">Pañeda and Lago read this as their most promising direction for explaining the illusion and its cross-linguistic variation: a lossy-context surprisal model in which infrequent structures get reconstructed inaccurately from degraded memory, which is simultaneously a memory account and a statistics account. Note also the reported range from the earlier Spanish completion data — verb-deficient completions at rates from 30% to 70%, higher when the initial noun had lower embedding bias.</p>
+
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 18px;"><strong>One further strand: language models.</strong> Pérez-Mayos and colleagues built SyntaxGymES, a Spanish adaptation of the SyntaxGym suites, including a Center Embedding circuit in which a relative clause is center-embedded after the main-clause subject and verb transitivity plus subject–verb plausibility test whether the model retains the information needed to order the verbs correctly — as in <em>La tormenta que el capitán capeó amainó</em> ('the storm that the captain weathered abated'), against the implausible ordering <em>?amainó capeó</em>. Their finding is that syntactic generalisation is language-specific: mBERT generalises better in English, XLM-R better in Spanish, with XLM-R's largest Spanish gains in Agreement and Center Embedding. Every model tested performed worse when modifiers increased the distance between co-varying elements. These are model results, not human ones, but they give a Spanish-specific instrument for the surprisal-based predictions the psycholinguistic work rests on.</p>
+    </div>
+  </section>
+
+  <section id="s7" style="margin-bottom: clamp(48px, 7vw, 80px);">
+    <div style="display: flex; gap: 16px; align-items: baseline; margin-bottom: 20px;">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; color: oklch(0.46 0.125 31); letter-spacing: 0.1em;">§7</span>
+      <h2 style="font-family: Spectral, serif; font-weight: 800; font-size: clamp(28px, 4vw, 44px); line-height: 1.06; letter-spacing: -0.02em; margin: 0; text-wrap: balance;">What is missing, in order of how much it matters</h2>
+    </div>
+
+    <div style="max-width: 70ch;">
+      <p style="font-size: 18.5px; line-height: 1.66; margin: 0 0 24px;">The Spanish literature on center embedding is, at the moment, one comprehension study, one production condition inside a larger paper, one thirty-year-old accuracy comparison, and a strong body of work on single embeddings. The gaps are specific and tractable.</p>
+    </div>
+
+    <ol style="max-width: 70ch; margin: 0; padding: 0; list-style: none; display: grid; gap: 22px;">
+      <li style="display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 14px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; color: oklch(0.46 0.125 31); padding-top: 4px;">i</span>
+        <div>
+          <div style="font-family: Spectral, serif; font-weight: 700; font-size: 20px; line-height: 1.3;">A Karlsson-style incidence study of Spanish</div>
+          <p style="font-size: 17px; line-height: 1.6; margin: 7px 0 0; color: oklch(0.3 0.016 58);">The method exists and is replicable: extract all sentences above a threshold count of subordinators and relative pronouns, then hand-analyse. Run on a balanced Spanish corpus it would yield the C¹ rate, the C²-per-million-words rate, the share of center embeddings that are relative, the proportion attaching to the subject, and whether the *O–O constraint holds in a differential-object-marking language — where <em>a</em>-marking might in principle make double object relativization more parseable than in English. Nothing in the literature predicts the answer.</p>
+        </div>
+      </li>
+      <li style="display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 14px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; color: oklch(0.46 0.125 31); padding-top: 4px;">ii</span>
+        <div>
+          <div style="font-family: Spectral, serif; font-weight: 700; font-size: 20px; line-height: 1.3;">Reading times for Spanish double embeddings</div>
+          <p style="font-size: 17px; line-height: 1.6; margin: 7px 0 0; color: oklch(0.3 0.016 58);">This would do two jobs at once: adjudicate the Hoover / Pañeda–Lago tension in the paradigm where it can be adjudicated, and separate the statistics reading of the inversion effect from the DLT reading, which the authors identify as requiring exactly this.</p>
+        </div>
+      </li>
+      <li style="display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 14px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; color: oklch(0.46 0.125 31); padding-top: 4px;">iii</span>
+        <div>
+          <div style="font-family: Spectral, serif; font-weight: 700; font-size: 20px; line-height: 1.3;">An interference-based individual-differences measure</div>
+          <p style="font-size: 17px; line-height: 1.6; margin: 7px 0 0; color: oklch(0.3 0.016 58);">The memory null in Experiment 2 is currently ambiguous between &ldquo;memory does not matter&rdquo; and &ldquo;operation span measures the wrong thing&rdquo;. A task indexing resistance to similarity-based interference would distinguish them.</p>
+        </div>
+      </li>
+      <li style="display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 14px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; color: oklch(0.46 0.125 31); padding-top: 4px;">iv</span>
+        <div>
+          <div style="font-family: Spectral, serif; font-weight: 700; font-size: 20px; line-height: 1.3;">Varieties beyond European Spanish</div>
+          <p style="font-size: 17px; line-height: 1.6; margin: 7px 0 0; color: oklch(0.3 0.016 58);">Both Pañeda &amp; Lago experiments used European Spanish speakers and a Spain-only corpus subsample; VS order is reported as obligatory in certain European Spanish configurations, and word-order preferences differ across varieties — the SyntaxGymES authors themselves flag possible Peninsular/American divergence in canonical order as a confound in their Linearization results. Since the whole inversion argument rests on verb-adjacency frequencies, variety is not a detail.</p>
+        </div>
+      </li>
+      <li style="display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 14px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; color: oklch(0.46 0.125 31); padding-top: 4px;">v</span>
+        <div>
+          <div style="font-family: Spectral, serif; font-weight: 700; font-size: 20px; line-height: 1.3;">Relativizer choice as a manipulated variable</div>
+          <p style="font-size: 17px; line-height: 1.6; margin: 7px 0 0; color: oklch(0.3 0.016 58);">All the Spanish center-embedding work to date uses <em>que</em>. Given the demonstrated early influence of relativizer semantics on processing, <em>el cual</em> (gender- and number-bearing) and <em>quien</em> (animate) ought to reduce the reconstruction ambiguity that lossy-context surprisal makes responsible for the illusion. That is a sharp, falsifiable prediction and nobody has tested it.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section style="margin-bottom: clamp(48px, 7vw, 80px);">
+    <h2 style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: oklch(0.46 0.125 31); margin: 0 0 20px; padding-bottom: 10px; border-bottom: 1px solid oklch(0.23 0.016 58 / 0.2);">Claim-by-claim provenance</h2>
+    <div style="display: grid; gap: 0;">
+      <div style="display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 0.9fr); gap: 16px; padding: 12px 0; border-bottom: 1px solid oklch(0.23 0.016 58 / 0.14); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: oklch(0.5 0.012 58);">
+        <span>Claim</span><span>Source</span><span>Status</span>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 0.9fr); gap: 16px; padding: 14px 0; border-bottom: 1px solid oklch(0.23 0.016 58 / 0.1); font-size: 15.5px; line-height: 1.5;">
+        <span>Max degree 3 written / 2 spoken; *O–O; relatives dominate</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;">Karlsson 2007, 132 C²</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: oklch(0.52 0.1 75);">not tested on Spanish</span>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 0.9fr); gap: 16px; padding: 14px 0; border-bottom: 1px solid oklch(0.23 0.016 58 / 0.1); font-size: 15.5px; line-height: 1.5;">
+        <span>Zero Spanish C²s in a 350M-token corpus</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;">Pañeda &amp; Lago 2024, App. A</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: oklch(0.52 0.1 75);">informal search, narrow scope</span>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 0.9fr); gap: 16px; padding: 14px 0; border-bottom: 1px solid oklch(0.23 0.016 58 / 0.1); font-size: 15.5px; line-height: 1.5;">
+        <span>Missing-VP illusion in Spanish, +30% / +26%</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;">Pañeda &amp; Lago 2024, Exp. 1–2</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: oklch(0.42 0.09 145);">replicated in-paper</span>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 0.9fr); gap: 16px; padding: 14px 0; border-bottom: 1px solid oklch(0.23 0.016 58 / 0.1); font-size: 15.5px; line-height: 1.5;">
+        <span>Inversion shrinks the illusion by 21 points</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;">ibid., Exp. 1</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: oklch(0.52 0.1 75);">two live interpretations</span>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 0.9fr); gap: 16px; padding: 14px 0; border-bottom: 1px solid oklch(0.23 0.016 58 / 0.1); font-size: 15.5px; line-height: 1.5;">
+        <span>No working-memory modulation</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;">ibid., Exp. 2, n = 80</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: oklch(0.52 0.1 75);">null; task validity questioned by authors</span>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 0.9fr); gap: 16px; padding: 14px 0; border-bottom: 1px solid oklch(0.23 0.016 58 / 0.1); font-size: 15.5px; line-height: 1.5;">
+        <span>Spanish 85% vs English 40% on double embeddings</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;">Hoover 1992, via Pañeda &amp; Lago</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: oklch(0.55 0.14 25);">single old study; in tension with the above</span>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 0.9fr); gap: 16px; padding: 14px 0; border-bottom: 1px solid oklch(0.23 0.016 58 / 0.1); font-size: 15.5px; line-height: 1.5;">
+        <span>Embedding bias predicts verb omission in Spanish, β = −0.23</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;">Hahn et al. 2022, Exp. 3</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: oklch(0.42 0.09 145);">converges with English &amp; German</span>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 0.9fr); gap: 16px; padding: 14px 0; font-size: 15.5px; line-height: 1.5;">
+        <span>Object-relative disadvantage at degree 1</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;">Betancort et al. 2009; del Río et al. 2012</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: oklch(0.42 0.09 145);">multiple independent studies</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: oklch(0.46 0.125 31); margin: 0 0 20px; padding-bottom: 10px; border-bottom: 1px solid oklch(0.23 0.016 58 / 0.2);">Sources</h2>
+    <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px 32px;">
+      <li style="font-size: 15.5px; line-height: 1.55;">Pañeda, C. &amp; Lago, S. (2024). The Missing VP Illusion in Spanish: Assessing the Role of Language Statistics and Working Memory. <em>Open Mind</em> 8. <a href="https://direct.mit.edu/opmi/article/doi/10.1162/opmi_a_00118/119675/The-Missing-VP-Illusion-in-Spanish-Assessing-the">direct.mit.edu</a></li>
+      <li style="font-size: 15.5px; line-height: 1.55;">Karlsson, F. (2007). Constraints on multiple center-embedding of clauses. <em>Journal of Linguistics</em> 43(2), 365–392. <a href="https://dimnaut.info/ling/FILES/ceb5.pdf">Full text (PDF)</a> · <a href="https://researchportal.helsinki.fi/en/publications/constraints-on-multiple-center-embedding-of-clauses">record</a></li>
+      <li style="font-size: 15.5px; line-height: 1.55;">Hahn, M., Futrell, R., Levy, R. P. &amp; Gibson, E. (2022). A resource-rational model of human processing of recursive linguistic structure. <em>PNAS</em> 119(43), e2122602119. <a href="https://www.pnas.org/doi/10.1073/pnas.2122602119">pnas.org</a></li>
+      <li style="font-size: 15.5px; line-height: 1.55;">Betancort, M., Carreiras, M. &amp; Sturt, P. (2009). The processing of subject and object relative clauses in Spanish: An eye-tracking study. <em>QJEP</em> 62(10). <a href="https://doi.org/10.1080/17470210902866672">doi.org</a></li>
+      <li style="font-size: 15.5px; line-height: 1.55;">del Río, D., López-Higes, R. &amp; Martín-Aragoneses, M. T. (2012). Canonical word order and interference-based integration costs during sentence comprehension: The case of Spanish subject- and object-relative clauses. <em>QJEP</em> 65(11), 2108–2128. <a href="https://journals.sagepub.com/doi/10.1080/17470218.2012.674951">sagepub</a></li>
+      <li style="font-size: 15.5px; line-height: 1.55;">Lexico-Semantic Influence on Syntactic Processing: An Eye-Tracking Study with Spanish Relative Clauses. <em>Frontiers in Psychology</em> (2023). <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10046643/">PMC10046643</a></li>
+      <li style="font-size: 15.5px; line-height: 1.55;">Pérez-Mayos, L., Táboas García, A., Mille, S. &amp; Wanner, L. (2021). Assessing the Syntactic Capabilities of Transformer-based Multilingual Language Models (SyntaxGymES). <a href="https://arxiv.org/pdf/2105.04688">arXiv:2105.04688</a></li>
+      <li style="font-size: 15.5px; line-height: 1.55;">The acquisition of object relative clauses in Spanish. <em>Frontiers in Communication</em> (2024). <a href="https://www.frontiersin.org/journals/communication/articles/10.3389/fcomm.2024.1369681/full">frontiersin.org</a></li>
+      <li style="font-size: 15.5px; line-height: 1.55;">Troike, R. C. (2015). Center-Embedding Relative Clauses in Coahuilteco. <em>IJAL</em> 81(1) — on extraposition as a depth-limiting strategy. <a href="https://www.journals.uchicago.edu/doi/full/10.1086/679045">journals.uchicago.edu</a></li>
+      <li style="font-size: 15.5px; line-height: 1.55;">Frank, S. L., Trompenaars, T. &amp; Vasishth, S. (2016). Cross-linguistic differences in processing double-embedded relative clauses. <em>Cognitive Science</em> 40(3), 554–578. <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: oklch(0.5 0.012 58);">cited via Pañeda &amp; Lago; not read in full</span></li>
+      <li style="font-size: 15.5px; line-height: 1.55;">Hoover, M. L. (1992). Sentence processing strategies in Spanish and English. <em>Journal of Psycholinguistic Research</em> 21(4), 275–299. <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: oklch(0.5 0.012 58);">accuracy figures reported here are as characterised by Pañeda &amp; Lago 2024; original not consulted</span></li>
+      <li style="font-size: 15.5px; line-height: 1.55;">Real Academia Española (2022). <em>Corpus del Español del Siglo XXI</em> (CORPES XXI). <a href="https://www.rae.es/banco-de-datos/corpes-xxi">rae.es</a></li>
+    </ol>
+
+    <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 1.7; color: oklch(0.48 0.012 58); margin: 32px 0 0; max-width: 80ch; padding-top: 18px; border-top: 1px solid oklch(0.23 0.016 58 / 0.15);">Method note. Karlsson 2007, Pañeda &amp; Lago 2024, Hahn et al. 2022 and Pérez-Mayos et al. 2021 were read in full; the remaining sources were consulted through abstracts and citing literature and are marked where a figure depends on a secondary characterisation. Spanish examples (1)–(5) are constructed on the templates published in the cited studies and are labelled as such; no attested Spanish double center embedding appears anywhere in the literature surveyed, which is itself the report's second finding.</p>
+  </section>
+
+</article>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showGlosses&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Report options&quot;},&quot;showCharts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Report options&quot;},&quot;showEvidenceGrades&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Report options&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      showGlosses: this.props.showGlosses ?? true,
+      showCharts: this.props.showCharts ?? true,
+      showEvidenceGrades: this.props.showEvidenceGrades ?? true,
+    };
+  }
+}
+</script>
+</body>
+</html>
