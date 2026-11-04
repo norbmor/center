@@ -1,0 +1,542 @@
+\documentclass[11pt, a4paper]{article}
+
+% ---------------------------------------------------------------------------
+% Center embedding in Spanish -- research report
+% Compiled with lualatex. Clean academic styling (no design-system colors);
+% content and structure follow "Center Embedding in Spanish.dc.html".
+% ---------------------------------------------------------------------------
+
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\setmonofont{DejaVu Sans Mono}[Scale=0.88]
+
+\usepackage[a4paper, margin=2.7cm]{geometry}
+\usepackage{microtype}
+\usepackage[spanish,english]{babel}
+\selectlanguage{english}
+
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage[hidelinks, colorlinks=true, linkcolor=oxblood, citecolor=oxblood, urlcolor=oxblood]{hyperref}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{footmisc}
+\usepackage[justification=raggedright, singlelinecheck=false, font=small]{caption}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{needspace}
+
+% ---------------------------------------------------------------------------
+% Palette: restrained -- a single accent color, mostly black/white otherwise.
+% ---------------------------------------------------------------------------
+\definecolor{oxblood}{HTML}{7A2E1C}
+\definecolor{inkgray}{HTML}{2A2A28}
+\definecolor{midgray}{HTML}{5B5B58}
+\definecolor{rulegray}{HTML}{BBBBB6}
+\definecolor{panelgray}{HTML}{F2F0EC}
+\definecolor{good}{HTML}{2F6D46}
+\definecolor{caution}{HTML}{8A5A17}
+\definecolor{bad}{HTML}{8C2E1E}
+
+\color{inkgray}
+
+% ---------------------------------------------------------------------------
+% Section styling
+% ---------------------------------------------------------------------------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{inkgray}}
+  {\S\thesection}{0.6em}{}
+\titlespacing*{\section}{0pt}{2.2em}{1em}
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{inkgray}}
+  {}{0em}{}
+\titlespacing*{\subsection}{0pt}{1.4em}{0.6em}
+
+\titleformat{\paragraph}[runin]
+  {\normalfont\bfseries}
+  {}{0em}{}[\ ]
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{\small\color{midgray}\thepage}
+
+\newcommand{\evidence}[2]{%
+  \par\smallskip\noindent{\small\ttfamily\color{#1}\RaggedRight EVIDENCE: #2\par}\smallskip
+}
+
+\newcommand{\gloss}[1]{%
+  {\small\ttfamily\color{midgray}\RaggedRight #1\par}
+}
+
+\newcommand{\translation}[1]{%
+  {\small\itshape\color{midgray}#1}\par
+}
+
+\newcommand{\source}[1]{%
+  {\footnotesize\ttfamily\color{midgray}\RaggedRight #1\par}
+}
+
+% Interlinear-style numbered example environment
+\newlist{xlist}{enumerate}{1}
+\setlist[xlist]{label=(\arabic*), leftmargin=2.4em, itemsep=1.1em, font=\ttfamily\color{midgray}}
+
+\title{\vspace{-2.5em}\Huge\bfseries Center embedding in Spanish}
+\author{}
+\date{}
+
+\begin{document}
+\selectlanguage{english}
+
+% ===========================================================================
+% MASTHEAD
+% ===========================================================================
+\begingroup
+\noindent
+{\ttfamily\small\color{oxblood}\MakeUppercase{Research report \textperiodcentered\ Hispanic psycholinguistics \& syntax}}
+\hfill
+{\ttfamily\small\color{midgray}Compiled 13 September 2026}\par
+\vspace{0.6em}
+\noindent\rule{\linewidth}{1.4pt}\par
+\vspace{0.5em}
+{\huge\bfseries Center embedding in Spanish\par}
+\vspace{0.6em}
+{\Large\itshape\color{midgray} A structure that Spanish grammar permits freely, that Spanish corpora appear not to contain, and that Spanish readers nevertheless mis-parse in a very particular way.\par}
+\vspace{1.2em}
+\endgroup
+
+% ===========================================================================
+% STAT TILES
+% ===========================================================================
+\noindent
+\begin{tcolorbox}[
+  colback=panelgray, colframe=rulegray, boxrule=0.4pt, arc=0pt,
+  left=8pt, right=8pt, top=8pt, bottom=8pt, breakable
+]
+\begin{minipage}[t]{0.24\linewidth}
+  \RaggedRight
+  {\Large\bfseries\color{oxblood}0}\\[4pt]
+  {\footnotesize\ttfamily double center-embedded relatives found in a targeted search of CORPES XXI ($\approx$350M tokens)}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.24\linewidth}
+  \RaggedRight
+  {\Large\bfseries\color{oxblood}+30\%}\\[4pt]
+  {\footnotesize\ttfamily ungrammatical double embeddings accepted \emph{more} often than grammatical ones (Spanish, speeded judgement)}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.24\linewidth}
+  \RaggedRight
+  {\Large\bfseries\color{oxblood}3}\\[4pt]
+  {\footnotesize\ttfamily maximum attested degree of clausal center embedding in written language --- across seven European languages, none of them Spanish}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.24\linewidth}
+  \RaggedRight
+  {\Large\bfseries\color{oxblood}null}\\[4pt]
+  {\footnotesize\ttfamily effect of individual working-memory span on the Spanish missing-VP illusion ($n=80$)}
+\end{minipage}
+\end{tcolorbox}
+\vspace{1.5em}
+
+% ===========================================================================
+% WHAT THE EVIDENCE SUPPORTS
+% ===========================================================================
+{\ttfamily\small\color{oxblood}\MakeUppercase{What the evidence supports}}\par
+\vspace{0.3em}\noindent\rule{\linewidth}{0.5pt}\par
+\vspace{1em}
+
+\begin{description}[leftmargin=2.6em, style=nextline, itemsep=1.3em]
+
+\item[{\ttfamily\color{oxblood}01}] {\large\bfseries Spanish center embeds where every VO language does: after the subject, before the main verb}\par
+Postnominal relative clauses plus SVO order put the embedded clause at the major intrasentential break. This is not a Spanish fact but a structural consequence, and the cross-linguistic corpus record for it is robust.
+\evidence{good}{Strong \textperiodcentered\ inferred for Spanish from typologically parallel languages}
+
+\item[{\ttfamily\color{oxblood}02}] {\large\bfseries There is no Spanish corpus study of center-embedding incidence. None.}\par
+The canonical quantitative work covers English, Finnish, French, German, Latin, Swedish and Danish. Spanish is absent. The only published Spanish search is a deliberately narrow, informal one --- and it returned nothing.
+\evidence{caution}{An absence, not a finding \textperiodcentered\ load-bearing for everything below}
+
+\item[{\ttfamily\color{oxblood}03}] {\large\bfseries The missing-VP illusion exists in Spanish, and looks larger than in English}\par
+Pañeda \& Lago (2024) show Spanish speakers accepting verb-deficient double embeddings more often than well-formed ones, in two experiments, with single embeddings behaving canonically as a control.
+\evidence{good}{Strong \textperiodcentered\ direct, pre-registered data, $n=157$ across two experiments}
+
+\item[{\ttfamily\color{oxblood}04}] {\large\bfseries Verb-cluster statistics predict the illusion; memory span does not}\par
+Spanish subject--verb inversion allows the number of adjacent verbs to be varied while holding embedding depth and grammaticality constant. Fewer adjacent verbs, smaller illusion. Operation-span scores had no detectable effect.
+\evidence{caution}{Moderate \textperiodcentered\ the inversion effect has a competing DLT reading; the memory null is a null}
+
+\item[{\ttfamily\color{oxblood}05}] {\large\bfseries Two Spanish results point in opposite directions, and nobody has reconciled them}\par
+Hoover (1992) reported Spanish comprehension of double embeddings holding near 85\% where English collapsed to $\sim$40\%. Pañeda \& Lago find an illusion at least as strong as English's. Both cannot be the whole story.
+\evidence{bad}{Conflicting \textperiodcentered\ different tasks, eras and populations; unresolved in the literature}
+
+\end{description}
+
+\noindent\rule{\linewidth}{1.6pt}
+\vspace{1em}
+
+% ===========================================================================
+% SECTION 1
+% ===========================================================================
+\section{The structure, and why Spanish builds it the way it does}
+
+A center-embedded clause is one with material from its superordinate clause on both sides of it. In Karlsson's terms, a clause is center-embedded when the superordinate clause has words to its left --- excluding subordinators and coordinators --- and to its right; \emph{degree} counts how many such embeddings a sequence contains, and \emph{depth} counts levels below the main clause. Spanish, like the seven languages in his corpus, is a VO language with postnominal relative clauses, and that combination has a predictable consequence: the natural landing site for an embedded clause is the right edge of the grammatical subject, immediately before the main verb.
+
+That site is not arbitrary. It is the major intrasentential break in an SVO language --- the point at which the topic has been introduced and can be specified before new information arrives with the verb and its complements. Across five Standard Average European languages, roughly two-thirds of center-embedded clauses attach to the subject of the superordinate clause, and around 70\% of all center-embedded clauses are relatives. Spanish should pattern with them; nobody has checked.
+
+\begin{tcolorbox}[colback=panelgray, colframe=oxblood, boxrule=0pt, leftrule=2.6pt, arc=0pt, left=14pt, right=14pt, top=10pt, bottom=10pt, breakable]
+{\ttfamily\small\color{oxblood}\MakeUppercase{The three degrees, built up}}\par
+\vspace{0.8em}
+
+\begin{xlist}
+\item[(1)] \selectlanguage{spanish}\normalfont\normalsize\upshape\color{inkgray} El periodista \textbf{que entrevistó al ministro} publicó el reportaje.\selectlanguage{english}\par
+\gloss{the journalist that interviewed dom-the minister published the report}
+\translation{`The journalist who interviewed the minister published the report.' --- C\textsuperscript{1}, subject relative}
+
+\item[(2)] \selectlanguage{spanish}\normalfont\normalsize\upshape\color{inkgray} El periodista \textbf{al que el ministro insultó} publicó el reportaje.\selectlanguage{english}\par
+\gloss{the journalist dom-the that the minister insulted published the report}
+\translation{`The journalist whom the minister insulted published the report.' --- C\textsuperscript{1}, object relative, marked by differential object marking}
+
+\item[(3)] \selectlanguage{spanish}\normalfont\normalsize\upshape\color{inkgray} El político \textbf{al que el periodista \underline{al que los reporteros interrumpieron} entrevistó} dimitió ayer.\selectlanguage{english}\par
+\gloss{the politician dom-the that the journalist dom-the that the reporters interrupted interviewed resigned yesterday}
+\translation{`The politician whom the journalist whom the reporters interrupted interviewed resigned yesterday.' --- C\textsuperscript{2}, the structure at issue throughout this report}
+\end{xlist}
+
+\vspace{0.4em}
+\noindent\rule{\linewidth}{0.4pt}\par
+\vspace{0.6em}
+{\footnotesize\ttfamily [\textsubscript{M} El político [\textsubscript{C-1} al que el periodista [\textsubscript{C-2} al que los reporteros interrumpieron] entrevistó] dimitió ayer.]\\[2pt]
+\color{midgray}Three consecutive verbs --- interrumpieron \textperiodcentered\ entrevistó \textperiodcentered\ dimitió --- is the configuration that all of \S3 turns on.}
+\end{tcolorbox}
+
+\vspace{0.6em}
+Four properties of Spanish make its center embeddings structurally distinct from the English cases the literature was built on.
+
+\paragraph{A relativizer inventory with real internal variation.} Beyond the default, semantically empty \emph{que}, Spanish has \emph{el cual} (carrying gender and number), \emph{quien} (animate), \emph{donde} (locative) --- relativizers that differ both in lexical frequency and in featural content. Fernández, Hoeks and colleagues' corpus-plus-eye-tracking work on restrictive and non-restrictive relatives shows lexico-semantic information from the relativizer influencing processing early, both when the relativizer is activated and when it is integrated into the structure. A center-embedding experiment that uses only \emph{que} is holding a Spanish-specific variable at one value.
+
+\paragraph{Differential object marking as a parsing cue.} Animate, specific objects take the preposition \emph{a}, which can precede the relative pronoun --- \emph{al que} in (2) and (3). This does work that English \emph{whom} does only optionally: it announces at the left edge of the clause that the relativized element is not the subject. Two consequences follow. Thematic-role assignment is easier despite the non-canonical object-before-subject order, and the parser can commit to an object-relative analysis immediately rather than garden-pathing into a subject-relative reading and reanalysing. Pañeda and Lago exploit this deliberately: every embedded clause in their materials is \emph{a}-marked, so that no antecedent can be grammatically read as the subject of the clause-internal verb --- not even in the inverted conditions, where the verb precedes its subject.
+
+\paragraph{Subject--verb inversion inside relative clauses.} Both SV and VS orders are grammatical in Spanish relatives, with VS generally unmarked and SV typically reserved for subject topicalisation. Position is further conditioned by semantics --- non-agentive and indefinite subjects tend to postpose. This is the single most useful methodological affordance Spanish offers this literature, and \S3 explains why.
+
+\paragraph{Free word order, hence lower cue validity for order itself.} English word order is rigid and therefore informative; Spanish speakers lean more on inflectional agreement. Every existing claim linking verb-initiality to the missing-VP illusion came from a language where order is a reliable cue. Spanish is the test case where it isn't.
+
+% ===========================================================================
+% SECTION 2
+% ===========================================================================
+\section{The corpus record, and the hole in it}
+
+Karlsson's 2007 \emph{Journal of Linguistics} paper remains the reference point for what center embedding actually looks like in use, and it is worth being precise about what it covers. He analysed 119 genuine multiple center embeddings, resolved into 132 C\textsuperscript{2} units, drawn from English, Finnish, French, German, Latin, Swedish and Danish --- systematically from the Brown and LOB corpora, supplemented by prior collections, a manual pass over 6,000 sentences of Bentham, Mill and Peirce, more than a hundred descriptive and stylistic grammars, and years of naturalistic observation.
+
+His findings are usage-based ``soft constraints'', not grammatical rules, and they are strikingly restrictive. Maximum degree is three in writing and two in speech, with C\textsuperscript{3} --- thirteen instances, all written --- effectively confined to Latin, German, English, Swedish and Danish, most of them convoluted enough to sit beyond Gibson's acceptability threshold. Multiple center embedding is \emph{practically absent} from genuine speech: three of the 132 C\textsuperscript{2}s are spoken, and no C\textsuperscript{4} has ever been adduced. Only clauses that postmodify nouns permit central self-embedding. And doubly relativized objects --- \emph{the rat the cat the dog chased killed ate the malt} --- do not occur at all, in any of the seven languages, in the whole corpus.
+
+\begin{figure}[htb]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  xbar, y axis line style = {opacity=0},
+  axis x line = none,
+  tickwidth = 0pt,
+  enlarge y limits = 0.12,
+  enlarge x limits = {upper, value=0.14},
+  xmin=0, xmax=40,
+  width=0.92\linewidth, height=6.4cm,
+  symbolic y coords={
+    {object rel. + object rel.},
+    {that-compl. + that-compl.},
+    {when/after/before + rel.},
+    {relative + as},
+    {relative + before/when},
+    {that-compl. + relative},
+    {relative + relative}
+  },
+  ytick=data,
+  yticklabel style={font=\footnotesize\ttfamily, text width=3.6cm, align=right},
+  nodes near coords, nodes near coords align={horizontal},
+  every node near coord/.append style={font=\scriptsize\ttfamily},
+  bar width=9pt,
+]
+\addplot[fill=oxblood, draw=none] coordinates {
+  (35.6,{relative + relative})
+  (11.4,{that-compl. + relative})
+  (10.6,{relative + before/when})
+  (8.3,{relative + as})
+  (6.8,{when/after/before + rel.})
+  (3.8,{that-compl. + that-compl.})
+};
+\addplot[fill=bad!85!white, draw=bad, pattern=north east lines, pattern color=bad] coordinates {
+  (1.2,{object rel. + object rel.})
+};
+\end{axis}
+\end{tikzpicture}
+\caption{Clause-type combinations in Karlsson's 132 C\textsuperscript{2}s, seven languages. Relative-inside-relative is the single largest class; $\sim$90\% of C\textsuperscript{2}s contain at least one relative clause. The last row (labeled 0, drawn as an open bar for visibility) is an empirical zero. Source: Karlsson 2007, Tables 4 and 7 ($n=132$ C\textsuperscript{2}; $n=47$ relative self-embeddings). No Spanish data.}
+\end{figure}
+
+For base rates, his English figures are the only ones on record: in a balanced 495-sentence Brown subsample, center embeddings are about 11\% of all embedded clauses and 15\% of finite ones, against 76\% for final embeddings; roughly every tenth running sentence contains a simplex C\textsuperscript{1}, about 70\% of which are relatives. C\textsuperscript{2} runs at an estimated 0.02\% of sentences --- one per 5,000 sentences, or twelve per million words, a figure independently matched in the Nijmegen corpus. Extrapolating the same ratio downward predicts a single C\textsuperscript{3} per 2.3 million sentences.
+
+Now the Spanish gap. \textbf{No equivalent survey exists.} The one published search is Pañeda and Lago's, and they are explicit that it was not a formal corpus study: it was scoped to structures matching their experimental items, restricted to texts produced in Spain between 2010 and 2022 within CORPES XXI ($\approx$350 million tokens, written and oral). They looked for sentences with two center-embedded \emph{que}-relatives in which each relative pronoun's antecedent was the subject of the nearest outer verb and the inner clause contained only a subject and a verb. They found no instances at all --- with inversion or without.
+
+That zero is worth reading carefully. It is entirely consistent with Karlsson's English base rate: at twelve C\textsuperscript{2}s per million words, a 350-million-token corpus narrowed by country, date, register, relativizer, antecedent function and inner-clause length can easily contain none. The honest reading is that the search establishes the extreme infrequency of one narrowly specified Spanish configuration. It does not measure Spanish center embedding, and it cannot be cited as though it did.
+
+\begin{figure}[htb]
+\centering
+\begin{tikzpicture}[x=0.019cm, y=1.3cm]
+  \node[anchor=east, font=\footnotesize\ttfamily] at (-2,2) {C$^2$, either order};
+  \draw[bad, pattern=north east lines, pattern color=bad] (0,{2-0.32}) rectangle ({0.05*436},{2+0.32});
+  \node[anchor=west, font=\scriptsize\ttfamily, color=bad] at ({0.05*436+3},2) {0};
+
+  \node[anchor=east, font=\footnotesize\ttfamily] at (-2,1) {C$^1$, inverted (VS)};
+  \draw[fill=oxblood, draw=none] (0,{1-0.32}) rectangle (436,{1+0.32});
+  \node[anchor=west, font=\scriptsize\ttfamily] at (439,1) {436};
+
+  \node[anchor=east, font=\footnotesize\ttfamily] at (-2,0) {C$^1$, non-inverted (SV)};
+  \draw[fill=oxblood!55!white, draw=none] (0,{-0.32}) rectangle (32,{0.32});
+  \node[anchor=west, font=\scriptsize\ttfamily] at (35,0) {32};
+\end{tikzpicture}
+\caption{What the CORPES XXI search did and did not find. Token counts, Spain 2010--2022 subcorpus. The informative contrast is not the zero at the top but the 14:1 preference for inversion in the single-embedding structures that \emph{are} attested. C\textsuperscript{2}, either order: \texttt{[que S [que S V] V] V} --- 0 tokens. C\textsuperscript{1}, inverted (VS): \texttt{[que V S] V}, 0 adjacent verbs --- 436 tokens. C\textsuperscript{1}, non-inverted (SV): \texttt{[que S V] V}, 2 adjacent verbs --- 32 tokens. Source: Pañeda \& Lago 2024, Appendix A. Described by the authors as a preliminary, non-formal search, scoped to their materials.}
+\end{figure}
+
+% ===========================================================================
+% SECTION 3
+% ===========================================================================
+\section{The missing-VP illusion arrives in Spanish}
+
+The most consequential recent result on Spanish center embedding is Claudia Pañeda and Sol Lago's \emph{Open Mind} paper of February 2024. It is the first study to test the missing-VP illusion in Spanish \emph{comprehension}, and it does so with a design that turns a Spanish grammatical property into an experimental instrument.
+
+The phenomenon: a grammatical double embedding requires three verb phrases. Delete the second, and the sentence becomes ungrammatical --- yet English speakers rate the broken version as equally or more acceptable than the intact one. Gibson and Thomas's (1999) account is that each of the three initial determiner phrases opens a VP prediction, all of which must be held simultaneously; the parser resolves the overload by dropping the VP2 prediction, whose absence then goes unnoticed. Speakers of languages with verb-final embedded clauses --- German, Dutch --- are markedly less prone to this, which has been attributed to the higher frequency of three-verb clusters in those languages rather than to any difference in memory.
+
+\begin{tcolorbox}[colback=panelgray, colframe=oxblood, boxrule=0pt, leftrule=2.6pt, arc=0pt, left=14pt, right=14pt, top=10pt, bottom=10pt, breakable]
+{\ttfamily\small\color{oxblood}\MakeUppercase{The four conditions, on one item}}\par
+\vspace{0.8em}
+
+\begin{xlist}
+\item[(4a)] \selectlanguage{spanish}\normalfont\normalsize\upshape\color{inkgray} El político al que el periodista al que \textbf{los reporteros interrumpieron entrevistó} dimitió ayer.\selectlanguage{english}\par
+{\footnotesize\ttfamily\color{good}GRAMMATICAL \textperiodcentered\ NON-INVERTED \textperiodcentered\ 3 adjacent verbs}
+
+\item[(4b)] \selectlanguage{spanish}\normalfont\normalsize\upshape\color{inkgray} *El político al que el periodista al que \textbf{los reporteros interrumpieron} dimitió ayer.\selectlanguage{english}\par
+{\footnotesize\ttfamily\color{bad}UNGRAMMATICAL, VP2 DELETED \textperiodcentered\ 2 adjacent verbs \textperiodcentered\ \normalfont\itshape accepted more often than (4a)}
+
+\item[(4c)] \selectlanguage{spanish}\normalfont\normalsize\upshape\color{inkgray} El político al que el periodista al que \textbf{interrumpieron los reporteros entrevistó} dimitió ayer.\selectlanguage{english}\par
+{\footnotesize\ttfamily\color{good}GRAMMATICAL \textperiodcentered\ INVERTED \textperiodcentered\ 2 adjacent verbs}
+
+\item[(4d)] \selectlanguage{spanish}\normalfont\normalsize\upshape\color{inkgray} *El político al que el periodista al que \textbf{interrumpieron los reporteros} dimitió ayer.\selectlanguage{english}\par
+{\footnotesize\ttfamily\color{bad}UNGRAMMATICAL, VP2 DELETED \textperiodcentered\ 0 adjacent verbs \textperiodcentered\ \normalfont\itshape rejected 12 points more often than (4b)}
+\end{xlist}
+
+\vspace{0.4em}\noindent\rule{\linewidth}{0.4pt}\par\vspace{0.6em}
+{\footnotesize\ttfamily\color{midgray}Constructed after the template of Pañeda \& Lago 2024, Table 1. Plural agreement on the inner subject, plus \emph{a}-marking on the relative pronoun, jointly block a subject-relative reading even under inversion.}
+\end{tcolorbox}
+
+\vspace{0.6em}
+\textbf{Experiment 1} (77 European Spanish speakers retained of 81, recruited via Prolific, speeded judgement at 400\,ms per word with a 2,000\,ms response deadline) crossed grammaticality with inversion over 24 double-embedding item sets, with twelve single-embedding sets as a length control. Bayesian mixed-effects logistic models found the diagnostic interaction: single embeddings produced a canonical grammaticality effect of $-63\%$ $[-72,-52]$, while double embeddings reversed it to $+30\%$ $[20,40]$. Ungrammatical sentences were accepted more often than grammatical ones.
+
+\textbf{Experiment 2} (80 speakers, in person at Oviedo, single embeddings folded into the item sets, non-inverted conditions only) replicated it: $-68\%$ $[-79,-57]$ for single embeddings, $+26\%$ $[16,37]$ for double.
+
+The single-embedding control is what makes this hard to dismiss. If participants were simply preferring shorter strings --- the missing-VP conditions are by construction one verb shorter --- the same heuristic should have inflated acceptance of defective single embeddings. It did the opposite.
+
+\begin{figure}[htb]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  xbar, y axis line style = {opacity=0},
+  axis x line = none,
+  tickwidth = 0pt,
+  enlarge y limits = 0.2,
+  enlarge x limits = 0.14,
+  xmin=-90, xmax=90,
+  width=0.92\linewidth, height=5.4cm,
+  symbolic y coords={
+    {Exp.\ 2 -- double},
+    {Exp.\ 2 -- single},
+    {Exp.\ 1 -- double},
+    {Exp.\ 1 -- single}
+  },
+  ytick=data,
+  yticklabel style={font=\footnotesize\ttfamily, text width=3.6cm, align=right},
+  nodes near coords={\pgfmathprintnumber[precision=0]{\pgfplotspointmeta}\%},
+  nodes near coords align={horizontal},
+  every node near coord/.append style={font=\scriptsize\ttfamily},
+  bar width=11pt,
+  extra x ticks={0},
+  extra x tick labels={},
+  extra x tick style={grid=major, major grid style={black, thin}},
+]
+\addplot[fill=good, draw=none] coordinates {
+  (-63,{Exp.\ 1 -- single})
+  (-68,{Exp.\ 2 -- single})
+};
+\addplot[fill=bad, draw=none] coordinates {
+  (30,{Exp.\ 1 -- double})
+  (26,{Exp.\ 2 -- double})
+};
+\end{axis}
+\end{tikzpicture}
+\caption{The grammaticality effect inverts with embedding depth. Model-estimated effect of grammaticality on acceptance, back-transformed to percentage points. Negative = ungrammatical sentences accepted less (the normal case); positive = the illusion. Exp.\ 1 single: $-63\%$ $[-72,-52]$. Exp.\ 1 double: $+30\%$ $[20,40]$. Exp.\ 2 single: $-68\%$ $[-79,-57]$. Exp.\ 2 double: $+26\%$ $[16,37]$. Source: Pañeda \& Lago 2024, Tables 2 and 4; 95\% credible intervals in brackets. Data and code at \href{https://osf.io/kp8ns/}{osf.io/kp8ns}.}
+\end{figure}
+
+\subsection*{Illusion size by inversion (Exp.\ 1, double embeddings only)}
+\begin{center}
+\begin{tikzpicture}[x=0.1cm, y=1cm]
+  \newcommand{\barrow}[4]{%
+    \node[anchor=east, font=\footnotesize\ttfamily] at (-2,#1) {#2};
+    \draw[fill=#4, draw=none] (0,{#1-0.32}) rectangle ({#3},{#1+0.32});
+    \node[anchor=west, font=\scriptsize\ttfamily] at ({#3+3},#1) {#3\%};
+  }
+  \barrow{1}{non-inverted (SV)}{65}{bad}
+  \barrow{0}{inverted (VS)}{45}{bad!55!white}
+\end{tikzpicture}
+\end{center}
+\begingroup\RaggedRight\footnotesize\ttfamily\color{midgray}Grammaticality $\times$ inversion interaction: $-21\%$ $[-34,-7]$. Driven by the ungrammatical conditions ($-12\%$ $[-21,-3]$); the effect on grammatical sentences straddled zero ($+9\%$ $[-2,20]$).\par\endgroup
+
+\vspace{0.8em}
+\textbf{The inversion manipulation is the methodological payoff.} Cross-linguistic tests of the language-statistics account have to compare speakers of different languages, which confounds verb-cluster frequency with everything else that differs between English and German. Spanish inversion varies the number of adjacent verbs \emph{within} the language, holding embedding depth, item, and grammatical status fixed: three verbs become two in the grammatical conditions, two become zero in the ungrammatical ones. The illusion shrank by 21 points under inversion --- the direction the statistics account predicts.
+
+Two caveats belong with that result, and the authors raise both. First, the effect was reliable only in the ungrammatical conditions, where inversion moves the string from a rare two-verb sequence to a common zero-verb one; in grammatical sentences it moves from vanishingly rare (three verbs) to merely very rare (two), which may simply not be enough. Second, there is an alternative reading under Dependency Locality Theory: inversion could shorten the dependency between \emph{al que} and its gap, reducing integration cost rather than raising expectedness. Whether that alternative holds depends on where the gap is --- after the verb if VS comes from rightward subject movement, after the subject if the verb has raised instead --- and on that second analysis the DLT prediction disappears. The authors favour the statistics reading while conceding the argument is not closed.
+
+\textbf{The memory result is a genuine null, and it is interesting.} Experiment 2 measured working memory with an operation-span task (recall scores ranged 27--93\%, mean 65\%, SD 13). Almost every account of the illusion assigns working memory a central role, yet the three-way interaction of span $\times$ grammaticality $\times$ depth straddled zero: $12\%$ $[-31,51]$. Nor did span predict the grammaticality effect within single or double embeddings separately. The authors do not conclude memory is irrelevant. They note that illusion size did vary substantially across participants, so the null is not a floor effect, and argue the most likely explanation is that operation span taps the wrong construct --- under cue-based retrieval models, maintenance capacity is not what matters, and an interference-resistance measure might do better. A reading-span task would have been the conventional choice; they avoided it precisely because it risks measuring reading comprehension itself.
+
+% ===========================================================================
+% SECTION 4
+% ===========================================================================
+\section{A conflict in the record}
+
+Before 2024, the best available evidence pointed the other way. Hoover's 1992 self-paced reading study compared center-embedded and right-branching clauses in Spanish and English. On comprehension accuracy for single embeddings the two languages were alike, both around 85\%. On double embeddings they diverged sharply: English accuracy fell to roughly 40\%, while Spanish held at about 85\%.
+
+\begin{tcolorbox}[colback=white, colframe=white, boxrule=0pt, leftrule=2.6pt, colbacklower=white, sharp corners, borderline west={2.6pt}{0pt}{oxblood}, left=16pt, right=4pt, top=6pt, bottom=6pt]
+{\Large\bfseries\itshape Spanish readers understood double center embeddings at 85\% where English readers managed 40\% --- and yet Spanish readers accept verb-deficient double embeddings more readily than English readers do.}\par
+\vspace{0.6em}
+{\footnotesize\ttfamily\color{oxblood}HOOVER 1992 vs. PAÑEDA \& LAGO 2024 --- both stand; neither has been reconciled with the other}
+\end{tcolorbox}
+\vspace{0.6em}
+
+Pañeda and Lago cite Hoover as grounds for expecting Spanish to be \emph{resistant} to the illusion, and predicted accordingly that eased processing might suppress it. They then found an illusion whose size is, descriptively, larger than in the English literature: in their data ungrammatical sentences were accepted in the majority of cases and grammatical ones rejected most of the time, whereas English studies typically found both conditions rated low with differences sometimes not reaching significance.
+
+Their own explanation for the magnitude difference is methodological rather than linguistic, and it is plausible: the English studies used untimed Likert ratings, theirs used word-by-word speeded presentation with a binary forced choice, which both loads memory harder and polarises responses. If that is right, the Spanish and English illusions may be the same size and the cross-study contrast an artefact --- which would leave Hoover's accuracy advantage standing and unexplained, since accuracy and illusion-susceptibility are not the same measure and could in principle dissociate.
+
+This is where the evidence is genuinely thin, and it should be reported as thin. Hoover 1992 is a single study, thirty-odd years old, measuring comprehension accuracy; Pañeda \& Lago 2024 is two studies measuring speeded acceptability. No one has run Spanish double embeddings in a reading-for-comprehension paradigm with modern methods, which is exactly the comparison that would adjudicate. The authors say as much: untimed Likert and reading-for-comprehension studies are needed to characterise the Spanish illusion's profile.
+
+% ===========================================================================
+% SECTION 5
+% ===========================================================================
+\section{The single-embedding baseline is well mapped}
+
+Everything above concerns degree 2 and beyond. At degree 1 --- one relative clause inside its host --- Spanish is one of the better-studied languages, and the results constrain what a theory of Spanish center embedding can say.
+
+\textbf{The subject-relative advantage holds.} Betancort, Carreiras and Sturt's eye-tracking study (2009) found object relatives harder than subject relatives in Spanish, with animacy modulating the size of the asymmetry --- the overall shape familiar from other languages, but with Spanish-specific implications, since Spanish relative clauses differ structurally from the English cases the asymmetry was first described in.
+
+\textbf{Its source is contested, and the candidates matter here.} del Río, López-Higes and Martín-Aragoneses (2012) used self-paced reading with the interposition of the relative-clause subject between object and verb manipulated, and with object relatives unambiguously \emph{a}-marked at onset. Reading times rose at the onset and final regions of object relatives \emph{regardless} of interference-based memory cost, although interference did appear to affect post-clause regions. Their conclusion --- that end-of-clause integration is shaped by a preference for canonical structures over and above interference --- is the same kind of expectation-based explanation that the inversion effect in \S3 invokes, arrived at independently a decade earlier and at a lower degree of embedding.
+
+\textbf{Frequency effects are demonstrable within Spanish relatives.} A large-scale corpus analysis found pronominal object relatives significantly more frequent than pronominal subject relatives when the embedded pronoun is personal, with the pattern reversing for impersonal pronouns; four self-paced reading tasks then showed processing differences mirroring that distribution. Spanish speakers' relative-clause expectations track corpus frequencies at a fine grain --- which is the premise the language-statistics account of the illusion needs.
+
+\textbf{Acquisition is late and effortful.} Eighty Spanish monolingual children aged 4;3 to 7;9 tested on subject and object relative comprehension show the object-relative difficulty attributed to constrained processing resources at early ages. This connects to a general finding worth keeping in view: center embedding is the last embedding position acquired, often after age seven, and center-embedded relatives attached to the main-clause subject --- precisely the adult written prototype --- are essentially absent from spontaneous child speech.
+
+% ===========================================================================
+% SECTION 6
+% ===========================================================================
+\section{Production, and models that predict Spanish}
+
+Hahn, Futrell, Levy and Gibson's 2022 PNAS paper supplies the other direct Spanish datapoint, from production rather than comprehension, and embeds it in an explicit model.
+
+Their proposal, \emph{resource-rational lossy-context surprisal}, is that memory representations of preceding context are optimised to minimise downstream processing effort under a resource bound, and that difficulty on a word is its surprisal given that lossy representation. Words are retained more often when recent and when low-frequency. Crucially, comprehenders reconstruct what they have lost using knowledge of language statistics --- so a true context like \emph{the report that the doctor annoyed the patient} competes with the surface-similar variant \emph{the report by the doctor annoyed the patient}, which requires one fewer verb. The a priori probability of the nonveridical variant therefore predicts difficulty at the final verb. They operationalise this with \emph{embedding bias}: the log-probability that a noun is followed by \emph{that}, which in English ranges from about 70\% for \emph{fact} to 0.7\% for \emph{report}.
+
+The Spanish test is Experiment 3, a sentence-completion study with 60 participants. Because subject-initial object relatives are unnatural in Spanish, they targeted subject relatives instead --- fragments of the form \emph{el hecho de que el director que\ldots} --- which incidentally tests generalisation to a different syntactic configuration. Spanish embedding-bias estimates came from the AnCora treebank for candidate nouns and from the 500-million-word Spanish Wikipedia for the probabilities.
+
+\begin{tcolorbox}[colback=panelgray, colframe=oxblood, boxrule=0pt, leftrule=2.6pt, arc=0pt, left=14pt, right=14pt, top=10pt, bottom=10pt, breakable]
+\begin{xlist}
+\item[(5)] \selectlanguage{spanish}\normalfont\normalsize\upshape\color{inkgray} El hecho de que el director que despidió al empleado \textbf{ocultara} el informe \textbf{sorprendió} a todos.\selectlanguage{english}\par
+\gloss{the fact of that the director that fired dom-the employee hid.sbjv the report surprised dom everyone}
+\translation{`The fact that the director who fired the employee hid the report surprised everyone.'}
+\par{\footnotesize\ttfamily\color{oxblood}A completion of the Spanish fragment type \emph{el hecho de que el director que\ldots} with all three required verbs. Speakers frequently produce only two.}
+\end{xlist}
+\end{tcolorbox}
+
+\vspace{0.4em}
+The result: embedding bias predicted the rate of incomplete (verb-deficient) completions in Spanish, $\beta=-0.23$, 95\% CrI $[-0.34,-0.12]$, $P(\beta>0)<0.0003$ --- an effect size comparable to English ($\beta=-0.32$) and German ($\beta=-0.28$), in a trial-by-trial logistic mixed-effects analysis. Languages differed in their overall rate of ungrammatical responses, but the embedding-bias effect held in all three. Neither plain surprisal theory nor DLT predicts it.
+
+Pañeda and Lago read this as their most promising direction for explaining the illusion and its cross-linguistic variation: a lossy-context surprisal model in which infrequent structures get reconstructed inaccurately from degraded memory, which is simultaneously a memory account and a statistics account. Note also the reported range from the earlier Spanish completion data --- verb-deficient completions at rates from 30\% to 70\%, higher when the initial noun had lower embedding bias.
+
+\textbf{One further strand: language models.} Pérez-Mayos and colleagues built SyntaxGymES, a Spanish adaptation of the SyntaxGym suites, including a Center Embedding circuit in which a relative clause is center-embedded after the main-clause subject and verb transitivity plus subject--verb plausibility test whether the model retains the information needed to order the verbs correctly --- as in \emph{La tormenta que el capitán capeó amainó} (`the storm that the captain weathered abated'), against the implausible ordering \emph{?amainó capeó}. Their finding is that syntactic generalisation is language-specific: mBERT generalises better in English, XLM-R better in Spanish, with XLM-R's largest Spanish gains in Agreement and Center Embedding. Every model tested performed worse when modifiers increased the distance between co-varying elements. These are model results, not human ones, but they give a Spanish-specific instrument for the surprisal-based predictions the psycholinguistic work rests on.
+
+% ===========================================================================
+% SECTION 7
+% ===========================================================================
+\section{What is missing, in order of how much it matters}
+
+The Spanish literature on center embedding is, at the moment, one comprehension study, one production condition inside a larger paper, one thirty-year-old accuracy comparison, and a strong body of work on single embeddings. The gaps are specific and tractable.
+
+\begin{enumerate}[label=\roman*., leftmargin=2.4em, itemsep=1em]
+
+\item \textbf{A Karlsson-style incidence study of Spanish.} The method exists and is replicable: extract all sentences above a threshold count of subordinators and relative pronouns, then hand-analyse. Run on a balanced Spanish corpus it would yield the C\textsuperscript{1} rate, the C\textsuperscript{2}-per-million-words rate, the share of center embeddings that are relative, the proportion attaching to the subject, and whether the *O--O constraint holds in a differential-object-marking language --- where \emph{a}-marking might in principle make double object relativization more parseable than in English. Nothing in the literature predicts the answer.
+
+\item \textbf{Reading times for Spanish double embeddings.} This would do two jobs at once: adjudicate the Hoover / Pañeda--Lago tension in the paradigm where it can be adjudicated, and separate the statistics reading of the inversion effect from the DLT reading, which the authors identify as requiring exactly this.
+
+\item \textbf{An interference-based individual-differences measure.} The memory null in Experiment 2 is currently ambiguous between ``memory does not matter'' and ``operation span measures the wrong thing''. A task indexing resistance to similarity-based interference would distinguish them.
+
+\item \textbf{Varieties beyond European Spanish.} Both Pañeda \& Lago experiments used European Spanish speakers and a Spain-only corpus subsample; VS order is reported as obligatory in certain European Spanish configurations, and word-order preferences differ across varieties --- the SyntaxGymES authors themselves flag possible Peninsular/American divergence in canonical order as a confound in their Linearization results. Since the whole inversion argument rests on verb-adjacency frequencies, variety is not a detail.
+
+\item \textbf{Relativizer choice as a manipulated variable.} All the Spanish center-embedding work to date uses \emph{que}. Given the demonstrated early influence of relativizer semantics on processing, \emph{el cual} (gender- and number-bearing) and \emph{quien} (animate) ought to reduce the reconstruction ambiguity that lossy-context surprisal makes responsible for the illusion. That is a sharp, falsifiable prediction and nobody has tested it.
+
+\end{enumerate}
+
+% ===========================================================================
+% CLAIM-BY-CLAIM PROVENANCE
+% ===========================================================================
+\section*{Claim-by-claim provenance}
+\addcontentsline{toc}{section}{Claim-by-claim provenance}
+
+\begin{center}
+\small
+\begin{longtable}{@{}p{6.3cm}p{4cm}p{3.5cm}@{}}
+\toprule
+\textbf{Claim} & \textbf{Source} & \textbf{Status} \\
+\midrule
+\endhead
+Max degree 3 written / 2 spoken; *O--O; relatives dominate & \ttfamily\footnotesize Karlsson 2007, 132 C\textsuperscript{2} & \color{caution}\ttfamily\footnotesize not tested on Spanish \\[4pt]
+Zero Spanish C\textsuperscript{2}s in a 350M-token corpus & \ttfamily\footnotesize Pañeda \& Lago 2024, App. A & \color{caution}\ttfamily\footnotesize informal search, narrow scope \\[4pt]
+Missing-VP illusion in Spanish, +30\% / +26\% & \ttfamily\footnotesize Pañeda \& Lago 2024, Exp. 1--2 & \color{good}\ttfamily\footnotesize replicated in-paper \\[4pt]
+Inversion shrinks the illusion by 21 points & \ttfamily\footnotesize ibid., Exp. 1 & \color{caution}\ttfamily\footnotesize two live interpretations \\[4pt]
+No working-memory modulation & \ttfamily\footnotesize ibid., Exp. 2, $n=80$ & \color{caution}\ttfamily\footnotesize null; task validity questioned by authors \\[4pt]
+Spanish 85\% vs English 40\% on double embeddings & \ttfamily\footnotesize Hoover 1992, via Pañeda \& Lago & \color{bad}\ttfamily\footnotesize single old study; in tension with the above \\[4pt]
+Embedding bias predicts verb omission in Spanish, $\beta=-0.23$ & \ttfamily\footnotesize Hahn et al. 2022, Exp. 3 & \color{good}\ttfamily\footnotesize converges with English \& German \\[4pt]
+Object-relative disadvantage at degree 1 & \ttfamily\footnotesize Betancort et al. 2009; del Río et al. 2012 & \color{good}\ttfamily\footnotesize multiple independent studies \\
+\bottomrule
+\end{longtable}
+\end{center}
+
+% ===========================================================================
+% SOURCES
+% ===========================================================================
+\section*{Sources}
+\addcontentsline{toc}{section}{Sources}
+
+\begin{enumerate}[leftmargin=1.6em, itemsep=0.6em, label={}]
+\small\RaggedRight
+\item Pañeda, C. \& Lago, S. (2024). The Missing VP Illusion in Spanish: Assessing the Role of Language Statistics and Working Memory. \emph{Open Mind} 8. \url{https://direct.mit.edu/opmi/article/doi/10.1162/opmi_a_00118/119675/The-Missing-VP-Illusion-in-Spanish-Assessing-the}
+\item Karlsson, F. (2007). Constraints on multiple center-embedding of clauses. \emph{Journal of Linguistics} 43(2), 365--392. \url{https://dimnaut.info/ling/FILES/ceb5.pdf} \textperiodcentered\ \url{https://researchportal.helsinki.fi/en/publications/constraints-on-multiple-center-embedding-of-clauses}
+\item Hahn, M., Futrell, R., Levy, R. P. \& Gibson, E. (2022). A resource-rational model of human processing of recursive linguistic structure. \emph{PNAS} 119(43), e2122602119. \url{https://www.pnas.org/doi/10.1073/pnas.2122602119}
+\item Betancort, M., Carreiras, M. \& Sturt, P. (2009). The processing of subject and object relative clauses in Spanish: An eye-tracking study. \emph{QJEP} 62(10). \url{https://doi.org/10.1080/17470210902866672}
+\item del Río, D., López-Higes, R. \& Martín-Aragoneses, M. T. (2012). Canonical word order and interference-based integration costs during sentence comprehension: The case of Spanish subject- and object-relative clauses. \emph{QJEP} 65(11), 2108--2128. \url{https://journals.sagepub.com/doi/10.1080/17470218.2012.674951}
+\item Lexico-Semantic Influence on Syntactic Processing: An Eye-Tracking Study with Spanish Relative Clauses. \emph{Frontiers in Psychology} (2023). \url{https://pmc.ncbi.nlm.nih.gov/articles/PMC10046643/}
+\item Pérez-Mayos, L., Táboas García, A., Mille, S. \& Wanner, L. (2021). Assessing the Syntactic Capabilities of Transformer-based Multilingual Language Models (SyntaxGymES). \url{https://arxiv.org/pdf/2105.04688}
+\item The acquisition of object relative clauses in Spanish. \emph{Frontiers in Communication} (2024). \url{https://www.frontiersin.org/journals/communication/articles/10.3389/fcomm.2024.1369681/full}
+\item Troike, R. C. (2015). Center-Embedding Relative Clauses in Coahuilteco. \emph{IJAL} 81(1) --- on extraposition as a depth-limiting strategy. \url{https://www.journals.uchicago.edu/doi/full/10.1086/679045}
+\item Frank, S. L., Trompenaars, T. \& Vasishth, S. (2016). Cross-linguistic differences in processing double-embedded relative clauses. \emph{Cognitive Science} 40(3), 554--578. {\footnotesize\ttfamily\color{midgray}cited via Pañeda \& Lago; not read in full}
+\item Hoover, M. L. (1992). Sentence processing strategies in Spanish and English. \emph{Journal of Psycholinguistic Research} 21(4), 275--299. {\footnotesize\ttfamily\color{midgray}accuracy figures reported here are as characterised by Pañeda \& Lago 2024; original not consulted}
+\item Real Academia Española (2022). \emph{Corpus del Español del Siglo XXI} (CORPES XXI). \url{https://www.rae.es/banco-de-datos/corpes-xxi}
+\end{enumerate}
+
+\vspace{1em}
+\noindent\rule{\linewidth}{0.4pt}\par
+\vspace{0.6em}
+\begingroup\RaggedRight\footnotesize\ttfamily\color{midgray}
+Method note. Karlsson 2007, Pañeda \& Lago 2024, Hahn et al. 2022 and Pérez-Mayos et al. 2021 were read in full; the remaining sources were consulted through abstracts and citing literature and are marked where a figure depends on a secondary characterisation. Spanish examples (1)--(5) are constructed on the templates published in the cited studies and are labelled as such; no attested Spanish double center embedding appears anywhere in the literature surveyed, which is itself the report's second finding.
+\par\endgroup
+
+\end{document}
