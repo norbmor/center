@@ -1,0 +1,143 @@
+% !TEX program = lualatex
+\DocumentMetadata{}
+\documentclass[12pt]{article}
+\usepackage[headheight=35pt,tmargin=2.5cm,bmargin=3.5cm,lmargin=3cm,rmargin=3cm]{geometry}
+\usepackage[colorlinks,linkcolor=blue,citecolor=blue]{hyperref}
+\usepackage[spanish,es-noquoting,english]{babel}
+\usepackage{graphicx}
+%\usepackage[utf8]{inputenc} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+\usepackage{textcomp}
+\usepackage{fontspec}      % support opentype text fonts
+\usepackage[math-style=upright,mathrm=sym,mathbf=sym]{unicode-math}
+                           % support opentype math fonts, including bold
+%\usepackage[spanish,es-noquoting]{babel}
+%\usepackage[T1]{fontenc}
+%\usepackage[expert,uprightgreek,altbullet]{lucidabr}
+\usepackage{pstricks}
+\usepackage{pst-node}
+\usepackage{pst-jtree}
+\usepackage{pstricks-add}
+\usepackage{pst-labo}
+\usepackage{pst-coil}
+\usepackage[normalem]{ulem}
+\usepackage{expex}
+\usepackage{phonrule}
+\usepackage[most]{tcolorbox}
+\usepackage{authblk}
+\usepackage{fancyhdr}
+%\usepackage{tipa} 
+\usepackage[autostyle]{csquotes}
+\usepackage{ctable,booktabs}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{microtype}
+
+\usepackage[backend=biber, style=authoryear]{biblatex}
+\addbibresource{cajal-xmas-2026.bib}
+
+\gathertags
+
+%Open type fonts
+\defaultfontfeatures{Scale=.92}
+\setmainfont[% main rm
+  Ligatures=TeX,
+      ItalicFont=LucidaBrightOT-Italic.otf,
+        BoldFont=LucidaBrightOT-Demi.otf,
+  BoldItalicFont=LucidaBrightOT-DemiItalic.otf,
+  ]{LucidaBrightOT.otf}
+  %
+  \setsansfont[% main sans
+  Ligatures=TeX,
+      ItalicFont=LucidaSansOT-Italic.otf,
+        BoldFont=LucidaSansOT-Demi.otf,
+  BoldItalicFont=LucidaSansOT-DemiItalic.otf,
+  ]{LucidaSansOT.otf}
+%
+\setmonofont[% main typewriter
+      ItalicFont=LucidaSansTypewriterOT-Oblique.otf,
+        BoldFont=LucidaSansTypewriterOT-Bold.otf,
+  BoldItalicFont=LucidaSansTypewriterOT-BoldOblique.otf,
+  ]{LucidaSansTypewriterOT.otf}
+%
+\setmathfont{LucidaBrightMathOT.otf}[BoldFont=LucidaBrightMathOT-Demi]
+%
+
+\DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
+\everymath={\rm}
+\def\TO{\quad$\rightarrow$\quad}
+
+\graphicspath{ {./img/} }
+\AtBeginDocument{\lingset{everygla=,aboveglcskip=0pt,aboveglftskip=0pt,glstyle=wrap}}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\definecolor{accent}{RGB}{140,52,38}
+\definecolor{muted}{RGB}{96,88,80}
+
+\newcommand{\es}[1]{\foreignlanguage{spanish}{\textit{#1}}}
+\newcommand{\rel}[1]{\textbf{#1}}
+\newcommand{\smallcapshead}[1]{{\color{accent}\small\texttt{\MakeUppercase{#1}}}\par\vspace{2pt}{\color{muted}\hrule}\vspace{8pt}}
+
+\title{Closing the center-embedding gap in Spanish:\\can grammatical features do the work of memory?}
+\author[1]{Norberto Moreno-Quibén}
+\author[2]{Silvia Gumiel-Molina}
+\author[3]{Isabel Pérez-Jiménez}
+\author[4]{Pilar Pérez-Ocón}
+\affil[1,2,3,4]{Departamento de Filología, Comunicación y Documentación, Universidad de Alcalá (UAH)}
+\date{{\small {\tt Poster Abstract $\cdot$ Cajal Xmas Meeting 2026 $\cdot$ Instituto Cajal, CSIC, Madrid}}}
+
+\begin{document}
+\maketitle
+
+\section*{Abstract}
+
+Sentences with multiple center-embedded clauses are famously hard to understand \parencite{Karlsson2007}. In doubly embedded relative clauses, this difficulty often produces the missing-VP illusion: when the second of three required verbs is missing (see examples below), readers judge the ungrammatical sentence to be more acceptable than its grammatical counterpart \parencite{Lewis2005,Hahn2022}. \textcite{Paneda2024} recently documented this illusion in Spanish. They found that the size of the effect depended on how rarely the verb sequence occurred in the language, whereas individual working-memory span had no effect on acceptability ratings. These findings point to cue-based retrieval interference in memory as a primary source of the illusion.
+
+Spanish allows a direct test of this retrieval account because it has three relativizers that appear in the same syntactic position yet differ in morphology. The default relativizer \es{que} is invariant and relies on an accompanying article to show gender and number (\es{a la que} / \es{al que}). By contrast, \es{el cual} inflects for gender and number on the pronoun itself (\es{a la cual} / \es{al cual}), and \es{quien} marks number while restricting its antecedent to human referents. Under cue-based retrieval models \parencite{Lewis2005}, the missing-VP illusion occurs when noisy memory representations of the clause heads are confused during retrieval. If so, overtly inflected relativizers should make each clause encoding more distinct and reduce the illusion while keeping clause length and embedding depth constant.
+
+We test this hypothesis with 120 native Spanish speakers across the six conditions shown below. Participants provide speeded acceptability judgments while we record eye movements during reading and scalp EEG. As more grammatical features are encoded on the relativizer, we expect fewer missing-VP illusions in the behavioral ratings and shorter regression-path times at the final verb. In the ERP record, more distinctive relativizers should reduce the sustained anterior negativity seen while open dependencies are held in memory and restore the P600 response to the missing verb. Together, these measures test whether the morphological content of function words helps the parser keep nested syntactic dependencies apart.
+
+\vspace{6pt}
+
+\textbf{Keywords:} sentence processing; cue-based retrieval; working memory; morphosyntactic features; ERP; Spanish
+
+\vspace{14pt}
+\smallcapshead{Supporting materials}
+
+\textit{All conditions are double center embeddings of identical depth; the featural content of the relativizer is crossed with grammaticality (VP2 \es{entrevistó} present vs.\ deleted).}
+
+\pex<stim-que>
+\a<que-gram> \foreignlanguage{spanish}{La política \rel{a la que} el periodista \rel{al que} los reporteros interrumpieron entrevistó dimitió ayer.} {\color{muted}\small\textsc{[Grammatical]}}
+\a<que-ungram> \ljudge{*} \foreignlanguage{spanish}{La política \rel{a la que} el periodista \rel{al que} los reporteros interrumpieron \sout{entrevistó} dimitió ayer.} {\color{muted}\small\textsc{[Ungrammatical, missing VP2]}}\\
+{\color{muted}\small In this baseline condition with invariant \es{que} (used in all prior Spanish work), gender and number are marked only on the article.}
+\xe
+
+\pex<stim-cual>
+\a<cual-gram> \foreignlanguage{spanish}{La política \rel{a la cual} el periodista \rel{al cual} los reporteros interrumpieron entrevistó dimitió ayer.} {\color{muted}\small\textsc{[Grammatical]}}
+\a<cual-ungram> \ljudge{*} \foreignlanguage{spanish}{La política \rel{a la cual} el periodista \rel{al cual} los reporteros interrumpieron \sout{entrevistó} dimitió ayer.} {\color{muted}\small\textsc{[Ungrammatical, missing VP2]}}\\
+{\color{muted}\small With \es{el cual}, gender and number are inflected on the relative pronoun itself in addition to the article.}
+\xe
+
+\pex<stim-quien>
+\a<quien-gram> \foreignlanguage{spanish}{La política \rel{a quien} el periodista \rel{a quien} los reporteros interrumpieron entrevistó dimitió ayer.} {\color{muted}\small\textsc{[Grammatical]}}
+\a<quien-ungram> \ljudge{*} \foreignlanguage{spanish}{La política \rel{a quien} el periodista \rel{a quien} los reporteros interrumpieron \sout{entrevistó} dimitió ayer.} {\color{muted}\small\textsc{[Ungrammatical, missing VP2]}}\\
+{\color{muted}\small With \es{quien}, the pronoun inflects for number and restricts the antecedent to a human referent.}
+\xe
+
+{\small Differential object marking (\es{a}) prevents a subject-relative reading in all conditions, so no sentence is locally ambiguous at the relativizer.\par}
+
+\vspace{14pt}
+\smallcapshead{References}
+
+\nocite{*}
+\printbibliography[heading=none]
+
+\end{document}
